@@ -1,21 +1,25 @@
 <div class="container" id="app">
-    <h2>test1</h2>
-    <h3>테이블</h3>            
-    <table class="table table-sm">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Age</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="person in people" :key="person.id">
-            <td>{{ person.id }}</td>
-            <td>{{ person.name }}</td>
-            <td>{{ person.age }}</td>
-          </tr>
-        </tbody>
-      </table>
+  <h2>테스트</h2>
+  <h3>/memberall</h3>            
+  <table class="table">
+      <thead>
+        <tr>
+          <th>userId</th>
+          <th>id</th>
+          <th>userNickName</th>
+          <th>userOpenDate</th>
+          <th>userDate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="person in people" :key="person.id">
+          <td>{{ person.userId }}</td>
+          <td>{{ person.id }}</td>
+          <td>{{ person.userNickName }}</td>
+          <td>{{ person.userOpenDate }}</td>
+          <td>{{ person.userDate }}</td>
+        </tr>
+      </tbody>
+    </table>
 </div>
 <script src="./test1/index.js"></script>

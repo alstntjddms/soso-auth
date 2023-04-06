@@ -8,7 +8,7 @@ new Vue({
       ]
     },
     mounted : function(){
-
+        console.log("333333");
     },
     methods:{
 

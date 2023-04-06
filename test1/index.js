@@ -2,15 +2,19 @@ new Vue({
     el: '#app',
     data: {
       people: [
-        { id: 1, name: 'John', age: 30 },
-        { id: 2, name: 'Jane', age: 25 },
-        { id: 3, name: 'Bob', age: 40 }
-      ]
+      ],
+      test: ""
     },
     mounted : function(){
-
+        console.log("111111");
+        this.load();
     },
     methods:{
-
+      load : async function(){
+        this.people = await axios.get('https://plater.kr/api/memberall').then(function(response){
+          console.log(response.data);
+          return response.data;
+        })
+      }
     }
   });
