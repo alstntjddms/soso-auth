@@ -6,7 +6,6 @@ new Vue({
       test: ""
     },
     mounted : function(){
-        console.log("111111");
         this.load();
     },
     methods:{

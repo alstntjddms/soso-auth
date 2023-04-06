@@ -60,7 +60,7 @@
     float: left;
     clear: left;
 }
-
+/* 아이콘 추가 URL https://fonts.google.com/icons?selected=Material+Symbols+Outlined:menu:FILL@0;wght@400;GRAD@0;opsz@48 */
 .menu label::before{ content: '\e5d2'; }
 .menu li:nth-child(1) a::before{ content: '\f02e'; }
 .menu li:nth-child(2) a::before{ content: '\e8d6'; }
