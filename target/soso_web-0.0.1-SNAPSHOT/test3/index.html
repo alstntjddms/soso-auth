@@ -1,21 +1,45 @@
 <div class="container" id="app">
-    <h2>test3</h2>
-    <h3>테이블</h3>            
-    <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Age</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="person in people" :key="person.id">
-            <td>{{ person.id }}</td>
-            <td>{{ person.name }}</td>
-            <td>{{ person.age }}</td>
-          </tr>
-        </tbody>
+  <div style="text-align: center;">
+  <h3>편지 목록 조회 ({{letterCount ? letterCount : "loading"}}개)</h3>
+  <h4>API : /letterall</h4>
+  </div>
+  <div style="overflow:auto;width:100%;">
+      <table class="table  table-striped table-hover table-bordered">
+          <thead>
+              <tr>
+                  <th>letterId</th>
+                  <th>userId</th>
+                  <th>letterContent</th>
+                  <th>letterFont</th>
+                  <th>letterFontColor</th>
+                  <th>letterPaper</th>
+                  <th>letterWriter</th>
+                  <th>letterIcon</th>
+                  <th>letterFontSize</th>
+                  <th>letterTextAlign</th>
+                  <th>letterWriteDate</th>
+                  <th>letterReadYn</th>
+                  <th>letterDelYn</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="letter in letters" :key="letter.letterId">
+                  <td>{{ letter.letterId }}</td>
+                  <td>{{ letter.userId }}</td>
+                  <td>{{ letter.letterContent }}</td>
+                  <td>{{ letter.letterFont }}</td>
+                  <td>{{ letter.letterFontColor }}</td>
+                  <td>{{ letter.letterPaper }}</td>
+                  <td>{{ letter.letterWriter }}</td>
+                  <td>{{ letter.letterIcon }}</td>
+                  <td>{{ letter.letterFontSize }}</td>
+                  <td>{{ letter.letterTextAlign }}</td>
+                  <td>{{ formatTimestamp(letter.letterWriteDate) }}</td>
+                  <td>{{ letter.letterReadYn }}</td>
+                  <td>{{ letter.letterDelYn }}</td>
+              </tr>
+          </tbody>
       </table>
+  </div>
 </div>
 <script src="./test3/index.js"></script>

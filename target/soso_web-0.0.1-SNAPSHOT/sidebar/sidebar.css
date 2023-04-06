@@ -62,12 +62,12 @@
 }
 /* 아이콘 추가 URL https://fonts.google.com/icons?selected=Material+Symbols+Outlined:menu:FILL@0;wght@400;GRAD@0;opsz@48 */
 .menu label::before{ content: '\e5d2'; }
-.menu li:nth-child(1) a::before{ content: '\f02e'; }
-.menu li:nth-child(2) a::before{ content: '\e8d6'; }
-.menu li:nth-child(3) a::before{ content: '\e88a'; }
-.menu li:nth-child(4) a::before{ content: '\e8cc'; }
-.menu li:nth-child(5) a::before{ content: '\e87d'; }
-.menu li:nth-child(6) a::before{ content: '\e8b8'; }
+.menu li:nth-child(1) a::before{ content: '\e7fd'; }
+.menu li:nth-child(2) a::before{ content: '\e851'; }
+.menu li:nth-child(3) a::before{ content: '\e158'; }
+.menu li:nth-child(4) a::before{ content: '\ef3d'; }
+.menu li:nth-child(5) a::before{ content: '\ef3d'; }
+.menu li:nth-child(6) a::before{ content: '\ef3d'; }
 
 .menu {
     width: 60px;

@@ -1,12 +1,22 @@
 body{
-    margin: 0;
+    /* background-image : url('background.png'); */
 }
 header{
     background-color: black;
     height: 55px;
+    width: 100%;
 }
 #importmain{
     margin-top: 1em;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 10em;
+}
+table{
+    text-align: center;
+}
+@media screen and (min-width: 600px) {
+    .footImg{
+        display: none;
+    }
 }

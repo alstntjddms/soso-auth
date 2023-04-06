@@ -1,7 +1,10 @@
 <div class="container" id="app">
-  <h2>테스트</h2>
-  <h3>/memberall</h3>            
-  <table class="table  table-striped table-hover table-bordered">
+  <div style="text-align: center;">
+  <h3>멤버 목록 조회 ({{ memberCount ? memberCount : "loading"}}명)</h3>
+  <h4>API : /memberall</h4>          
+  </div>
+  <div style="overflow:auto;width:100%">
+    <table class="table  table-striped table-hover table-bordered">
       <thead>
         <tr>
           <th>userId</th>
@@ -12,14 +15,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="person in people" :key="person.id">
-          <td>{{ person.userId }}</td>
-          <td>{{ person.id }}</td>
-          <td>{{ person.userNickName }}</td>
-          <td>{{ person.userOpenDate }}</td>
-          <td>{{ person.userDate }}</td>
+        <tr v-for="member in members" :key="members.id">
+          <td>{{ member.userId ? member.userId : "loading" }}</td>
+          <td>{{ member.id ? member.id : "loading"}}</td>
+          <th>{{ member.userNickName ? member.userNickName : "loading"}}</th>
+          <td>{{ member.userOpenDate ? formatTimestamp(member.userOpenDate) : "loading"}}</td>
+          <td>{{ member.userDate ? formatTimestamp(member.userDate) : "loading" }}</td>
         </tr>
       </tbody>
     </table>
+  </div>  
 </div>
 <script src="./test1/index.js"></script>
