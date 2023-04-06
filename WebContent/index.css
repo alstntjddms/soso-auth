@@ -4,6 +4,7 @@ body{
 header{
     background-color: black;
     height: 55px;
+    width: 100%;
 }
 #importmain{
     margin-top: 1em;

@@ -1,65 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, 
-    maximum-scale=1.0, minimum-scale=1.0">
-    <style type='text/css'>
-        @-ms-viewport { width: device-width; }
-        @-o-viewport { width: device-width; }
-        @viewport { width: device-width; }
-        </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
-    <title>YC GPT-3.5 TEST</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="./sidebar/sidebar.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- [Bootstrap] -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
 </head>
 <body>
-    <header class="header">
-        YC GPT-3.5 BETA
-        <fieldset>
-            <label>
-                <input id="toggleSwitch"role="switch" type="checkbox" checked />
-                <span>즉시보기</span>
-            </label>
-        </fieldset>
+    <!-- 사이드바 추가 -->
+    <aside><div id="sidebar"></div></aside>
+
+    <!-- 헤더 추가 -->
+    <header>
+        <!-- 제목 -->
+        <div style="text-align: center; color: aliceblue; font-size: 2em; font-family: 'Noto Sans KR';">관리자 페이지</div>
     </header>
-<div id = "app">
-    <div class="chat_wrap">
-        <div class="chat">
-            <ul>
-                <!-- 동적 생성 -->
-            </ul>
-        </div>
-        <div class="input-div">
-            <textarea id="txt" placeholder="질문을 입력해 주세요."></textarea>
-            <button id="btn">전송</button>
-        </div>
-     
-        <!-- format -->
-     
-        <div class="chat format">
-            <ul>
-                <li>
-                    <div class="sender">
-                        <span></span>
-                    </div>
-                    <div class="message">
-                        <span></span>
-                    </div>
-                </li>
-            </ul>
-        </div>
+
+    <!-- 본문 추가 -->
+    <div id="importmain">
+        <div id="main"></div>
     </div>
-    
-
-
-</div>
-
-<script type="module"  src="index.js" charset="utf-8"></script>
-
-
 </body>
+<script src="index.js"></script>
 </html>
