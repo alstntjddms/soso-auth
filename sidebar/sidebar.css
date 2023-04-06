@@ -6,7 +6,7 @@
     color: #fff;
     transition: all 0.5s ease;
     border-radius: 20px;
-    padding: 10px;
+    padding: 9px;
     box-sizing: border-box;
 }
 .menu ul {
@@ -14,23 +14,28 @@
     margin: 0;
     padding: 0;
 }
+
 .menu a, .menu > label {
     display: block;
-    height: 25px;
-    padding: 8px;
+    height: 40px;
+    padding: 10px;
     cursor: pointer;
     color: #fff;
     text-decoration: none;
+    margin-bottom: 0px;
+    padding-top: 6px;
 }
 
 .menu a:hover {
     color: #000;
 }
+
 .menu ul li:hover, .menu > label:hover {
     background-color: #fff;
     color: #000;
     border-radius: 10px;
 }
+
 .menu div {
     position: absolute;
     left: 50px;
@@ -43,6 +48,7 @@
 #expand-menu {
     display: none;
 }
+
 #expand-menu:checked ~ ul {
     display: block;
     height: auto;
@@ -54,6 +60,7 @@
     float: left;
     clear: left;
 }
+
 .menu label::before{ content: '\e5d2'; }
 .menu li:nth-child(1) a::before{ content: '\f02e'; }
 .menu li:nth-child(2) a::before{ content: '\e8d6'; }
