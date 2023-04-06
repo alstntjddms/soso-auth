@@ -1,0 +1,21 @@
+<div class="container" id="app">
+    <h2>test2</h2>
+    <h3>테이블</h3>            
+    <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="person in people" :key="person.id">
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+<script src="./test2/index.js"></script>
