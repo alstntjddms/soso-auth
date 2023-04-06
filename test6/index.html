@@ -1,31 +1,21 @@
-<div class="container">
+<div class="container" id="app">
     <h2>test6</h2>
     <h3>테이블</h3>            
     <table class="table">
         <thead>
-        <tr>
-            <th>ㅁㅁㅁㅁㅁ</th>
-            <th>ㅁㅁㅁㅁㅁ</th>
-            <th>ㅁㅁㅁㅁㅁㅁ</th>
-        </tr>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+          </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>ㅇㅇㅇㅇ</td>
-            <td>ㅇㅇ</td>
-            <td>ㅇㅇㅇㅇ</td>
-        </tr>
-        <tr>
-            <td>ㅂㅂㅂㅂㅂ</td>
-            <td>ㅂㅂㅂㅂㅂㅂㅂㅂ</td>
-            <td>ㅂㅂㅂㅂㅂㅂ</td>
-        </tr>
-        <tr>
-            <td>ㅋㅋㅋㅋㅋ</td>
-            <td>ㅋㅋㅋㅋㅋㅋ</td>
-            <td>ㅋㅋㅋㅋㅋㅋㅋ</td>
-        </tr>
+          <tr v-for="person in people" :key="person.id">
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+          </tr>
         </tbody>
-    </table>
+      </table>
 </div>
 <script src="./test6/index.js"></script>
