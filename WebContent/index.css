@@ -5,6 +5,7 @@ header{
     background-color:#000022;
     height: 55px;
     width: 100%;
+    opacity: 0.8;
 }
 #importmain{
     margin-top: 1em;
