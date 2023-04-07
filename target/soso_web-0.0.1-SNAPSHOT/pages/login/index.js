@@ -22,6 +22,7 @@ var b = new Vue({
         this.errMsg = "코드를 확인하세요.";
         accessYn = false;
       }
+      // 로그인 로그
       await axios.get('https://plater.kr/api/request/log?/authLogin/'+this.authCode);
       // 입력값 초기화
       this.authCode = "";
