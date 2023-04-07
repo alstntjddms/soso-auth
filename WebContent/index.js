@@ -1,18 +1,21 @@
+// 로그인 체크 변수
 var accessYn = false;
-// 로그인 처리
-function login(){
-    if (accessYn == false) return;
-    $("#sidebar").load("./sidebar/sidebar.html");
-    $("#main").load("./test1/index.html");
-};
 
 // 기본페이지 로딩
 $("#main").load("./login/index.html");
 
-// 메뉴 클릭시 메인페이지 이벤트
-function test1(){
+// 로그인 처리
+function login(){
     if (accessYn == false) return;
-    $("#main").load("./test1/index.html");
+    $('body').css('background-image', "none");
+    $("#sidebar").load("./sidebar/sidebar.html");
+    $("#main").load("./member/index.html");
+};
+
+// 메뉴 클릭시 메인페이지 이벤트
+function loadMember(){
+    if (accessYn == false) return;
+    $("#main").load("./member/index.html");
 };
 function test2(){
     if (accessYn == false) return;
@@ -39,5 +42,6 @@ function test6(){
 function home(){
     accessYn = false;
     $("#main").load("./login/index.html");
+    $('body').css('background-image', "url('background.png')");
     $("#sidebar").html("");
 };

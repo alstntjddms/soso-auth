@@ -4,7 +4,7 @@
     <h4>API : /kakaoall</h4>
     </div>
     <div style="overflow:auto;width:100%">
-        <table class="table  table-striped table-hover table-bordered" >
+        <table class="table  table-striped table-hover" >
             <thead>
                 <tr>
                     <th>id</th>
@@ -30,8 +30,8 @@
                     <td>{{ kakao.kakaoNickName }}</td>
                     <td>{{ kakao.kakaoGender }}</td>
                     <td>{{ kakao.kakaoBirthday }}</td>
-                    <td>{{ formatTimestamp(kakao.kakaoRegisterDate) }}</td>
-                    <td>{{ formatTimestamp(kakao.kakaoLoginDate) }}</td>
+                    <td>{{ this.timestampToDate(kakao.kakaoRegisterDate) }}</td>
+                    <td>{{ this.timestampToDate(kakao.kakaoLoginDate) }}</td>
                     <td>{{ kakao.kakaoMsgYn }}</td>
                 </tr>
             </tbody>

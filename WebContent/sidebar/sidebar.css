@@ -2,7 +2,7 @@
     display: block;
     overflow: hidden;
     width: 200px;
-    background-color: #000;
+    background-color: #000022;
     color: #fff;
     transition: all 0.5s ease;
     border-radius: 15px;
@@ -27,12 +27,12 @@
 }
 
 .menu a:hover {
-    color: #000;
+    color: #000022;
 }
 
 .menu ul li:hover, .menu > label:hover {
     background-color: #fff;
-    color: #000;
+    color: #000022;
     border-radius: 10px;
 }
 

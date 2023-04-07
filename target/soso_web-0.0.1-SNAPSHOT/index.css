@@ -2,7 +2,7 @@ body{
     /* background-image : url('background.png'); */
 }
 header{
-    background-color: black;
+    background-color:#000022;
     height: 55px;
     width: 100%;
 }
@@ -18,5 +18,11 @@ table{
 @media screen and (min-width: 600px) {
     .footImg{
         display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body{
+        background-image : url('background.png');
     }
 }
