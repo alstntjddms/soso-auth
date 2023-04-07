@@ -34,7 +34,7 @@
                   <td>{{ letter.letterIcon }}</td>
                   <td>{{ letter.letterFontSize }}</td>
                   <td>{{ letter.letterTextAlign }}</td>
-                  <td>{{ formatTimestamp(letter.letterWriteDate) }}</td>
+                  <td>{{ this.timestampToDate(letter.letterWriteDate) }}</td>
                   <td>{{ letter.letterReadYn }}</td>
                   <td>{{ letter.letterDelYn }}</td>
               </tr>

@@ -19,8 +19,8 @@
           <td><b>{{ member.userId ? member.userId : "loading" }}</b></td>
           <td>{{ member.id ? member.id : "loading"}}</td>
           <th>{{ member.userNickName ? member.userNickName : "loading"}}</th>
-          <td>{{ member.userOpenDate ? formatTimestamp(member.userOpenDate) : "loading"}}</td>
-          <td>{{ member.userDate ? formatTimestamp(member.userDate) : "loading" }}</td>
+          <td>{{ member.userOpenDate ? this.timestampToDate(member.userOpenDate) : ""}}</td>
+          <td>{{ member.userDate ? this.timestampToDate(member.userDate) : "loading" }}</td>
         </tr>
       </tbody>
     </table>

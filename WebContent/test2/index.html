@@ -30,8 +30,8 @@
                     <td>{{ kakao.kakaoNickName }}</td>
                     <td>{{ kakao.kakaoGender }}</td>
                     <td>{{ kakao.kakaoBirthday }}</td>
-                    <td>{{ formatTimestamp(kakao.kakaoRegisterDate) }}</td>
-                    <td>{{ formatTimestamp(kakao.kakaoLoginDate) }}</td>
+                    <td>{{ this.timestampToDate(kakao.kakaoRegisterDate) }}</td>
+                    <td>{{ this.timestampToDate(kakao.kakaoLoginDate) }}</td>
                     <td>{{ kakao.kakaoMsgYn }}</td>
                 </tr>
             </tbody>
