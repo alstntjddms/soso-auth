@@ -1,0 +1,16 @@
+<div class="container" id="app">
+  <div style="text-align: center;">
+    <form class="form-signin">
+      <h3 class="form-signin-heading">로그인</h3>
+      <div class="input-group">
+        <label for="username" class="sr-only">로그인코드</label>
+        <input v-model="authCode" type="text" id="username" name="username" class="form-control" placeholder="로그인코드" required autofocus>
+        <div class="input-group-append">
+          <button class="btn btn-sm btn-primary" type="button" @click="login">로그인</button>
+        </div>
+      </div>
+      <h5 style="color: red;">{{ errMsg }}</h5>
+    </form>
+  </div>
+</div>
+<script src="./login/index.js"></script>

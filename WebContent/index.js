@@ -1,10 +1,11 @@
-// 사이드바 로딩
-$(function() {
+// 로그인 처리
+function login(){
     $("#sidebar").load("./sidebar/sidebar.html");
-});
+    $("#main").load("./test1/index.html");
+};
 
 // 기본페이지 로딩
-$("#main").load("./test1/index.html");
+$("#main").load("./login/index.html");
 
 // 메뉴 클릭시 메인페이지 이벤트
 function test1(){
@@ -24,4 +25,10 @@ function test5(){
 };
 function test6(){
     $("#main").load("./test6/index.html");
+};
+
+// 홈 클릭시 초기화
+function home(){
+    $("#main").load("./login/index.html");
+    $("#sidebar").html("");
 };
