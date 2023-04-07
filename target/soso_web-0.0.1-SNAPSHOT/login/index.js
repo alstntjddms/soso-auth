@@ -10,7 +10,7 @@ var b = new Vue({
     // 로그인 처리
     login : async function(){
       const result = await this.sendCode(this.authCode);
-      if(result != null){
+      if(result == true){
         console.log("로그인성공!");
         accessYn = true;
         login();
@@ -23,9 +23,13 @@ var b = new Vue({
     },
     // 입력한 코드 전송
     sendCode : async function(authCode){
-      return await axios.get('https://plater.kr/api/memberall').then(function(response){
+      return await axios.post('https://plater.kr/api/auth', this.authCode, { headers: {
+        'Content-Type': 'text/plain'
+    }}).then(function(response){
         console.log(response.data);
         return response.data;
+      }).catch(function(error) {
+        console.error(error);
       });
     }
   }
