@@ -1,0 +1,20 @@
+<div class="container" id="app">
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+  <div class="container" id="app">
+    <div style="text-align: center;">
+      <form class="form-signin" onsubmit="return false" >
+        <h4 class="form-signin-heading" style="color:lightgray;">CODE</h4>
+        <div class="input-group">
+          <input style="text-align: center; outline: 2px solid lightgray;" v-model="authCode" @keyup.enter="login()" type="text" id="authCode" name="authCode" class="form-control" placeholder="LoginCode" required autofocus>
+          <div class="input-group-append">
+            <button class="btn btn-sm btn-dark" type="button" @click="login" style="outline: 2px solid lightgray;">접속</button>
+          </div>
+        </div>
+        <br>
+        <div style="color:firebrick; font-size: 1em;">{{ errMsg }}</div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+<script src="./pages/login/index.js"></script>
