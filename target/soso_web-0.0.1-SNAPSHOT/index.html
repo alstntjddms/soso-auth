@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>소소한 관리자 페이지</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="./sidebar/sidebar.css">
+    <!-- google font, icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <script src="framework/computed.js"></script>
+</head>
+<body>
+    <!-- 사이드바 추가 -->
+    <aside>
+        <div id="sidebar"></div>
+    </aside>
+
+    <!-- 헤더 추가 -->
+    <header>
+        <!-- 제목 -->
+        <div style="text-align: center; color: aliceblue; font-size: 2em; font-family: 'Noto Sans KR';" onclick="home()">
+            <img src="https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true" alt="logo" style="width: 1.3em;">
+            관리자 페이지
+        </div>
+    </header>
+
+    <!-- 본문 추가 -->
+    <div id="importmain">
+        <div id="main"></div>
+    </div>
+
+    <!-- 하단 이미지 -->
+    <img class="footImg" src="footerbackground.gif" alt="footBackground" style="position:fixed;width:100%;height:20%;bottom:0px;">
+
+</body>
+<script src="index.js"></script>
+</html>

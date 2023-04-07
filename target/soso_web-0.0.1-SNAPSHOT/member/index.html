@@ -1,0 +1,29 @@
+<div class="container" id="app">
+  <div style="text-align: center;">
+  <h3>멤버 목록 조회 ({{ memberCount ? memberCount : "loading"}}명)</h3>
+  <h4>API : /memberall</h4>          
+  </div>
+  <div style="overflow:auto;width:100%">
+    <table class="table  table-striped table-hover">
+      <thead>
+        <tr>
+          <th>userId</th>
+          <th>id</th>
+          <th>userNickName</th>
+          <th>userOpenDate</th>
+          <th>userDate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="member in members" :key="members.id">
+          <td><b>{{ member.userId ? member.userId : "loading" }}</b></td>
+          <td>{{ member.id ? member.id : "loading"}}</td>
+          <th>{{ member.userNickName ? member.userNickName : "loading"}}</th>
+          <td>{{ member.userOpenDate ? this.timestampToDate(member.userOpenDate) : ""}}</td>
+          <td>{{ member.userDate ? this.timestampToDate(member.userDate) : "loading" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>  
+</div>
+<script src="./member/index.js"></script>
