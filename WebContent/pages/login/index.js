@@ -13,14 +13,13 @@ var b = new Vue({
         this.errMsg = "코드를 입력하세요.";
         return;
       }
-      const result = await this.sendCode(this.authCode);
-      if(result == true){
+      accessYn = await this.sendCode(this.authCode);
+      if(accessYn != ""){
         console.log("로그인성공!");
-        accessYn = true;
         login();
       }else{
         this.errMsg = "코드를 확인하세요.";
-        accessYn = false;
+        accessYn = "";
       }
       // 로그인 로그
       await axios.get('https://plater.kr/api/request/log?/authLogin/'+this.authCode);

@@ -11,7 +11,7 @@ new Vue({
   },
   methods:{
     load : async function(){
-      this.letters = await axios.get('https://plater.kr/api/letterall').then(function(response){
+      this.letters = await axios.get('https://plater.kr/api/letterall?' + accessYn).then(function(response){
         console.log(response.data);
         return response.data;
       })

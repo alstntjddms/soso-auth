@@ -11,7 +11,7 @@ new Vue({
     },
     methods:{
       load : async function(){
-        this.kakaos = await axios.get('https://plater.kr/api/kakaoall').then(function(response){
+        this.kakaos = await axios.get('https://plater.kr/api/kakaoall?'+ accessYn).then(function(response){
           console.log(response.data);
           return response.data;
         })
