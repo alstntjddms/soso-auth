@@ -13,6 +13,7 @@ var b = new Vue({
         this.errMsg = "코드를 입력하세요.";
         return;
       }
+      $('.loader-wrapper').show();
       accessYn = await this.sendCode(this.authCode);
       if(accessYn != ""){
         console.log("로그인성공!");
@@ -25,6 +26,7 @@ var b = new Vue({
       await axios.get('https://plater.kr/api/request/log?/authLogin/'+this.authCode);
       // 입력값 초기화
       this.authCode = "";
+      $('.loader-wrapper').hide();
     },
     // 입력한 코드 전송
     sendCode : async function(authCode){
