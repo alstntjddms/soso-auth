@@ -4,6 +4,9 @@ var accessYn = "";
 // 기본페이지 로딩
 $("#main").load("./pages/login/index.html");
 
+// 로딩창 숨김 처리
+$('.loader-wrapper').hide();
+
 // 로그인 처리
 function login(){
     if (accessYn == "") return;
@@ -16,6 +19,7 @@ function login(){
 function loadMember(){
     if (accessYn == "") return;
     $("#main").load("./pages/member/index.html");
+
 };
 function test2(){
     if (accessYn == "") return;

@@ -11,10 +11,12 @@ var b = new Vue({
   },
   methods:{
     load : async function(){
+      $('.loader-wrapper').show();
       this.members = await axios.get('https://plater.kr/api/memberall?' + accessYn).then(function(response){
         console.log(response.data);
         return response.data;
-      })
+      });
+      $('.loader-wrapper').hide();
     },
   }
 });
