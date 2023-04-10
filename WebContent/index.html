@@ -4,16 +4,23 @@
     <title>SMS</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://github.com/Lee-Seung-Wook/Angelo-s_Library/blob/main/lib/logo/logo.png?raw=true" rel="shortcut icon" type="image/x-icon">
+    <!-- ios 메타태그 추가 -->
+    <link rel="apple-touch-icon" href="/images/ios/152.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="SMS-IOS" />
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <link href="./images/ios/512.png" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" type="text/css" href="./sidebar/sidebar.css">
     <!-- google font, icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
-    <!-- vue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Bootstrap -->
@@ -22,6 +29,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Latest compiled and minified CSS -->
     <script src="framework/computed.js"></script>
+    <!-- 서비스워커 추가 -->
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('./pwabuilder-sw.js').then(function(registration) {
+            // 서비스워커 등록 성공
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+            // 서비스워커 등록 실패
+            console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+    </script>
 </head>
 <body>
     <!-- 사이드바 추가 -->
@@ -37,6 +58,11 @@
             <p style="font-size:0.4em; margin-top:-0.5em">Soso_Management_System</p>
         </div>
     </header>
+
+    <div id="install-button" style="margin-left: 1em;margin-top: 1em;">
+        <img src="./images/ios/100.png" style="width: 2em;">
+        <span style="color:aliceblue">바로가기 추가</span>
+    </div>
 
     <!-- 본문 페이지 추가 -->
     <div id="importmain">
