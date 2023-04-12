@@ -10,7 +10,7 @@ new Vue({
     // 데이터 로드
     await this.load();
     // 카운트
-    this.memberCount = this.members.lengthMenu
+    this.memberCount = this.members.length;
     // 테이블 생성
     $('#main1').DataTable({
       data: this.members,
