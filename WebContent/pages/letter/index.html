@@ -1,10 +1,10 @@
 <div class="container" id="app">
   <div style="text-align: center;">
-  <h3>편지 목록 조회 ({{letterCount ? letterCount : "0"}}개)</h3>
-  <h4>API : /letterall</h4>
+    <h3>편지 목록 조회 ({{letterCount ? letterCount : "0"}}개)</h3>
+    <h4>API : /letterall</h4>
   </div>
   <div style="overflow:auto;width:100%;">
-      <table class="table  table-striped table-hover" style="font-size: 0.5em;">
+      <table id="main1" class="table  table-striped table-hover" style="font-size: 0.5em;">
           <thead>
               <tr>
                   <th>letterId</th>
@@ -23,7 +23,7 @@
               </tr>
           </thead>
           <tbody>
-              <tr v-for="letter in letters" :key="letter.letterId">
+              <!-- <tr v-for="letter in letters" :key="letter.letterId">
                   <td>{{ letter.letterId }}</td>
                   <td>{{ letter.userId }}</td>
                   <td>{{ letter.letterContent }}</td>
@@ -37,7 +37,7 @@
                   <td>{{ this.timestampToDate(letter.letterWriteDate) }}</td>
                   <td>{{ letter.letterReadYn }}</td>
                   <td>{{ letter.letterDelYn }}</td>
-              </tr>
+              </tr> -->
           </tbody>
       </table>
   </div>

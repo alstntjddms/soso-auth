@@ -10,8 +10,8 @@ header{
 }
 #importmain{
     margin-top: 1em;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
     margin-bottom: 10em;
 }
 table{
@@ -66,4 +66,3 @@ table{
     font-size: 24px;
     font-weight: bold;
   }
-  
