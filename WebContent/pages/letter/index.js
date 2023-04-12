@@ -31,7 +31,7 @@ new Vue({
         { data: 'letterReadYn', title: 'letterReadYn' },
         { data: 'letterDelYn', title: 'letterDelYn' },
       ],
-      order:[[11, "desc"]],
+      order:[[10, "desc"]],
       info: false,
       language: {
         paginate: {
