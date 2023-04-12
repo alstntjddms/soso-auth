@@ -5,8 +5,13 @@ new Vue({
     letterCount: 0
   },
   mounted : async function(){
+    // 메뉴 초기화
+    $('#expand-menu').prop('checked', false);
+    // 데이터 로드
     await this.load();
+    // 카운트
     this.letterCount = this.letters.length;
+    // 테이블 생성
     $('#main1').DataTable({
       data: this.letters,
       columns: [

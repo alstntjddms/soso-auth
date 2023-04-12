@@ -10,8 +10,8 @@ header{
 }
 #importmain{
     margin-top: 1em;
-    margin-left: 0.1em;
-    margin-right: 0.1em;
+    margin-left: 1em;
+    margin-right: 1em;
     margin-bottom: 10em;
 }
 table{
@@ -39,30 +39,30 @@ table{
     z-index: 9999;
   }
   
-  .loader {
-    border: 1em solid #f3f3f3;
-    border-top: 1em solid #000022;
-    border-radius: 50%;
-    width: 9em;
-    height: 9em;
-    animation: spin 2s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+.loader {
+  border: 1em solid #f3f3f3;
+  border-top: 1em solid #000022;
+  border-radius: 50%;
+  width: 9em;
+  height: 9em;
+  animation: spin 2s linear infinite;
+}
 
-  .loading-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 24px;
-    font-weight: bold;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}

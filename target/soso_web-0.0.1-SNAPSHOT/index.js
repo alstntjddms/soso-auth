@@ -21,7 +21,6 @@ function login(){
 function loadMember(){
     if (accessYn == "") return;
     $("#main").load("./pages/member/index.html");
-
 };
 function test2(){
     if (accessYn == "") return;
