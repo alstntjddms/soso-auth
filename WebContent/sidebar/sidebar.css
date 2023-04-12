@@ -8,6 +8,7 @@
     border-radius: 15px;
     padding: 9px;
     box-sizing: border-box;
+    z-index: 9999;
 }
 .menu ul {
     list-style: none;
