@@ -13,7 +13,6 @@ function login(){
     $('body').css('background-image', "none");
     $("#sidebar").load("./sidebar/sidebar.html");
     $("#main").load("./pages/member/index.html");
-
     $("#install-button").hide();
 };
 
@@ -22,17 +21,17 @@ function loadMember(){
     if (accessYn == "") return;
     $("#main").load("./pages/member/index.html");
 };
-function test2(){
+function loadKakao(){
     if (accessYn == "") return;
     $("#main").load("./pages/kakao/index.html");
 };
-function test3(){
+function loadLetter(){
     if (accessYn == "") return;
     $("#main").load("./pages/letter/index.html");
 };
-function test4(){
+function loadLog(){
     if (accessYn == "") return;
-    $("#main").load("./pages/test4/index.html");
+    $("#main").load("./pages/log/index.html");
 };
 function test5(){
     if (accessYn == "") return;
@@ -103,9 +102,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 $("#install-button").on('click', async () => {
   // Hide the app provided install promotion
   // Show the install prompt
-  console.log("11111");
   deferredPrompt.prompt();
-  console.log("22222");
   try {
     // Wait for the user to respond to the prompt
     const { outcome } = await deferredPrompt.userChoice;
@@ -138,4 +135,4 @@ window.addEventListener('appinstalled', () => {
     return 'browser';
   }
 
-  console.log(getPWADisplayMode());
+console.log(getPWADisplayMode());
