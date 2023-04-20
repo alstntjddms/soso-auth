@@ -29,7 +29,8 @@ new Vue({
         { data: 'kakaoLoginDate', title: 'kakaoLoginDate',
           render: function(data) { return data ? timestampToDate(data) : ''; } 
         },
-        { data: 'kakaoMsgYn', title: 'kakaoMsgYn' }
+        { data: 'kakaoMsgYn', title: 'kakaoMsgYn' },
+        { data: 'kakaoDefaultNickName', title: 'kakaoDefaultNickName' }
       ],
       order:[[0, "desc"]],
       info: false,
