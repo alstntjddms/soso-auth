@@ -50,9 +50,15 @@ new Vue({
   methods:{
     load : async function(){
       $('.loader-wrapper').show();
-      this.letters = await axios.get('https://plater.kr/api/letterall?' + accessYn).then(function(response){
+      this.letters = await axios.get('https://plater.kr/api/letterall', {
+        headers: {
+          'sosoJwtToken': "Bearer " + getSosoJwtToken()
+        }
+      }).then(function(response){
         console.log(response.data);
         return response.data;
+      }).catch(function(error) {
+        location.reload();
       });
       $('.loader-wrapper').hide();
     }

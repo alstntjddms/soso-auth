@@ -9,7 +9,6 @@ $('.loader-wrapper').hide();
 
 // 로그인 처리
 function login(){
-    if (accessYn == "") return;
     $('body').css('background-image', "none");
     $("#sidebar").load("./sidebar/sidebar.html");
     $("#main").load("./pages/member/index.html");
@@ -18,19 +17,15 @@ function login(){
 
 // 메뉴 클릭시 메인페이지 이벤트
 function loadMember(){
-    if (accessYn == "") return;
     $("#main").load("./pages/member/index.html");
 };
 function loadKakao(){
-    if (accessYn == "") return;
     $("#main").load("./pages/kakao/index.html");
 };
 function loadLetter(){
-    if (accessYn == "") return;
     $("#main").load("./pages/letter/index.html");
 };
 function loadLog(){
-    if (accessYn == "") return;
     $("#main").load("./pages/log/index.html");
 };
 function test5(){

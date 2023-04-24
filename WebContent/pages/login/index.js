@@ -5,6 +5,7 @@ var b = new Vue({
     errMsg: ""
   },
   mounted : async function(){
+    await this.checkJwtToken();
   },
   methods:{
     // 로그인 처리
@@ -14,29 +15,41 @@ var b = new Vue({
         return;
       }
       $('.loader-wrapper').show();
-      accessYn = await this.sendCode(this.authCode);
-      $('.loader-wrapper').hide();
-      if(accessYn != ""){
+
+      if(await this.sendCode() == true){
         login();
       }else{
         this.errMsg = "코드를 확인하세요.";
-        accessYn = "";
+        // 입력값 초기화
+        this.authCode = "";
       }
+      $('.loader-wrapper').hide();
+      
       // 로그인 로그
       await axios.get('https://plater.kr/api/request/log?/authLogin/'+this.authCode);
-      // 입력값 초기화
-      this.authCode = "";
+
     },
     // 입력한 코드 전송
-    sendCode : async function(authCode){
-      return await axios.post('https://plater.kr/api/auth', this.authCode, { headers: {
-        'Content-Type': 'text/plain'
-    }}).then(function(response){
+    sendCode : async function(){
+      return await axios.post('https://plater.kr/api/auth', this.authCode, { 
+        headers: {
+          'Content-Type': 'text/plain'
+        },
+    }).then(function(response){
         console.log(response.data);
         return response.data;
       }).catch(function(error) {
         console.error(error);
+        return false;
       });
+    },
+    checkJwtToken: async function(){
+      console.log("checkJwtToken");
+
+      if(getSosoJwtToken() != null){
+        console.log("login");
+        window.login();
+      }
     }
   }
 });

@@ -43,11 +43,18 @@ new Vue({
   methods:{
     load : async function(){
       $('.loader-wrapper').show();
-      this.members = await axios.get('https://plater.kr/api/memberall?' + accessYn).then(function(response){
+      this.members = await axios.get('https://plater.kr/api/memberall', {
+        headers: {
+          'sosoJwtToken': "Bearer " + getSosoJwtToken()
+        }
+      }).then(function(response){
         console.log(response.data);
         return response.data;
+      }).catch(function(error) {
+        location.reload();
       });
       $('.loader-wrapper').hide();
     },
+    
   }
 });

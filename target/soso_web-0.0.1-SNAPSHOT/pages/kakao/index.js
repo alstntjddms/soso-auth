@@ -51,9 +51,15 @@ new Vue({
   methods:{
     load : async function(){
       $('.loader-wrapper').show();
-      this.kakaos = await axios.get('https://plater.kr/api/kakaoall?'+ accessYn).then(function(response){
+      this.kakaos = await axios.get('https://plater.kr/api/kakaoall', {
+        headers: {
+          'sosoJwtToken': "Bearer " + getSosoJwtToken()
+        }
+      }).then(function(response){
         console.log(response.data);
         return response.data;
+      }).catch(function(error) {
+        location.reload();
       });
       $('.loader-wrapper').hide();
     }
