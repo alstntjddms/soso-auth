@@ -12,6 +12,7 @@ new Vue({
     },
     methods:{
         login : async function(){
+            console.log("login");
             if(this.authCode.length < 1){
               this.errMsg = "코드를 입력하세요.";
               return;

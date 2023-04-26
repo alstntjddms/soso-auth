@@ -24,7 +24,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form>
+      <form onsubmit="return false">
         <!-- <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="이름">
           <div class="input-group-append">
@@ -34,7 +34,7 @@
           </div>
         </div> -->
         <div class="input-group mb-3">
-          <input v-model="authCode" type="password" class="form-control" placeholder="CODE">
+          <input v-model="authCode" type="password" class="form-control" placeholder="CODE" @keyup.enter="login()">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

@@ -1,11 +1,15 @@
 new Vue({
     el: '#app',
     data: {
-      name: ""
+      name: "",
+      minsu: false
     },
     mounted : async function(){
       this.checkJwtToken();
       this.name = await this.setName();
+      if(this.name == "전민수"){
+        this.minsu = true;
+      }
     },
     methods:{
       checkJwtToken: async function(){
