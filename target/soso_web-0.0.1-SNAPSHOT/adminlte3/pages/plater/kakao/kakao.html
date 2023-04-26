@@ -91,6 +91,115 @@
     </section>
     <!-- /.content -->
   </div>
+
+  <!-- /.modal -->
+  <div class="modal fade" id="modal-xl">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">카카오 조회</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- 데이터 로드 시작 -->
+            <div class="card card-default">
+              <!-- /.card-body -->
+              <div class="card-body">
+                <div class="row">
+                  <!-- col -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>id</label>
+                      <input class="form-control" style="width: 100%;" @model="kakao.id" :value="kakao.id" :disabled="mode =='default'"></input>
+                    </div>
+                    <div class="form-group">
+                      <label>kakaoId</label>
+                      <input class="form-control" style="width: 100%;" @model="kakao.kakaoId" :value="kakao.kakaoId" :disabled="mode =='default'"></input>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                  <!-- col -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>kakaoAccessToken</label>
+                      <input class="form-control" style="width: 100%;" @model="kakao.kakaoAccessToken" :value="kakao.kakaoAccessToken" :disabled="mode =='default'"></input>
+                    </div>
+                    <div class="form-group">
+                      <label>kakaoRefreshToken</label>
+                      <input class="form-control" style="width: 100%;" @model="kakao.kakaoRefreshToken" :value="kakao.kakaoRefreshToken" :disabled="mode =='default'"></input>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                  <!-- col -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>kakaoEmail</label>
+                      <input class="form-control" style="width: 100%;" @model="kakao.kakaoEmail" :value="kakao.kakaoEmail" :disabled="mode =='default'"></input>
+                    </div>
+                    <div class="form-group">
+                      <label>kakaoNickName</label>
+                      <input class="form-control" style="width: 100%;" @model="kakao.kakaoNickName" :value="kakao.kakaoNickName" :disabled="mode =='default'"></input>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                  <!-- col -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>kakaoGender</label>
+                      <input class="form-control" style="width: 100%;" @model="kakao.kakaoGender" :value="kakao.kakaoGender" :disabled="mode =='default'"></input>
+                    </div>
+                    <div class="form-group">
+                      <label>kakaoBirthday</label>
+                      <input class="form-control" style="width: 100%;" @model="kakao.kakaoBirthday" :value="kakao.kakaoBirthday" :disabled="mode =='default'"></input>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                  <!-- col -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>kakaoRegisterDate</label>
+                      <input class="form-control" style="width: 100%;" @model="kakao.kakaoRegisterDate" :value="kakao.kakaoRegisterDate" :disabled="mode =='default'"></input>
+                    </div>
+                    <div class="form-group">
+                      <label>kakaoLoginDate</label>
+                      <input class="form-control" style="width: 100%;" @model="kakao.kakaoLoginDate" :value="kakao.kakaoLoginDate" :disabled="mode =='default'"></input>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                  <!-- col -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>kakaoMsgYn</label>
+                      <input class="form-control" style="width: 100%;" @model="kakao.kakaoMsgYn" :value="kakao.kakaoMsgYn" :disabled="mode =='default'"></input>
+                    </div>
+                    <div class="form-group">
+                      <label>kakaoDefaultNickName</label>
+                      <input class="form-control" style="width: 100%;" @model="kakao.kakaoDefaultNickName" :value="kakao.kakaoDefaultNickName" :disabled="mode =='default'"></input>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+            <!-- /.card -->
+          </div>
+        <!-- 데이터 로드 끝 -->
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+          <div>
+            <button v-if="mode =='default'" type="button" class="btn btn-success" @click="clickUpdate">수정</button>
+            <button v-if="mode =='update'" type="button" class="btn btn-primary">저장</button>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
 </div>
 <!-- ./wrapper -->
 

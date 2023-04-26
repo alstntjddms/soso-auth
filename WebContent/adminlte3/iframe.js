@@ -2,14 +2,18 @@ new Vue({
     el: '#app',
     data: {
       name: "",
-      minsu: false
+      minsu: false,
     },
     mounted : async function(){
       this.checkJwtToken();
       this.name = await this.setName();
       if(this.name == "전민수"){
         this.minsu = true;
-      }
+      };
+      // Iframe 플러그인 설정 tab과 sidebar 연결
+      $('.content-wrapper').IFrame({
+        allowReload : false
+      })
     },
     methods:{
       checkJwtToken: async function(){
@@ -19,6 +23,20 @@ new Vue({
       },
       setName: async function(){
         return getName(getCookie("sosoJwtToken")).aud;
+      },
+      refresh: function(){
+        // tab-pane 요소들 중에 active show 클래스를 가진 요소를 찾음
+        if ($('.tab-content .tab-pane.active.show').length > 0) {
+          // activeTabPane 내부의 iframe을 찾음
+          var iframe = $('.tab-content .tab-pane.active.show').find('iframe');
+
+          if (iframe.length > 0) {
+            // iframe의 src 값을 변경하여 새로고침
+            var src = iframe.attr('src');
+            iframe.attr('src', '');
+            iframe.attr('src', src);
+          }
+        }
       }
     }
   });

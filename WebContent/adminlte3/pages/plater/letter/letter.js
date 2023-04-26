@@ -82,7 +82,7 @@ new Vue({
           // 모달 열기
           $('#modal-xl').modal('toggle');
         });
-              // 모달 닫힘 이벤트 처리
+        // 모달 닫힘 이벤트 처리
         $('#modal-xl').on('hidden.bs.modal', function (e) {
           self.mode = "default";
         });
