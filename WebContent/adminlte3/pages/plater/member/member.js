@@ -10,11 +10,11 @@ new Vue({
         userDate:"",
       },
       members: [],
-      memberCount: 0,
     },
     mounted : async function(){
       // self에 vue객체 설정
       var self = this;
+
       await this.load();
 
       $('#example1').DataTable({
@@ -52,7 +52,7 @@ new Vue({
         $('#modal-xl').on('show.bs.modal', function(event) {
           // 모달이 열릴 때 실행될 함수
         });
-        $('#example1 tbody').on('click', 'tr', function() {
+        $('#example1 tbody').on('click', 'tr td:not(:first-child)', function() {
           // 데이터 가져오기
           var data = $('#example1').DataTable().row(this).data();
           self.member.userId = data.userId;
@@ -80,7 +80,6 @@ new Vue({
           console.log(response.data);
           return response.data;
         }).catch(function(error) {
-          console.log("데이터 불러오기 에러");
           window.parent.location.reload()
         });
       },

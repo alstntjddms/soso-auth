@@ -56,8 +56,12 @@ new Vue({
           console.log(response.data);
           return response.data;
         }).catch(function(error) {
-          location.reload();
+          window.parent.location.reload()
         });
+      },
+      clickUpdate : async function(){
+        console.log("clickUpdate");
+        this.mode = "update";
       },      
     }
   });
