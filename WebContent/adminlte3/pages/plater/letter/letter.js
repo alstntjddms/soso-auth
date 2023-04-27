@@ -25,24 +25,25 @@ new Vue({
 
       $('#example1').DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        buttons: ["excel", "colvis"],
         data: this.letters,
         columns: [
-          { data: 'letterId', title: 'letterId' },
-          { data: 'userId', title: 'userId' },
-          { data: 'letterContent', title: 'letterContent' },
-          { data: 'letterFont', title: 'letterFont' },
-          { data: 'letterFontColor', title: 'letterFontColor' },
-          { data: 'letterPaper', title: 'letterPaper' },
-          { data: 'letterWriter', title: 'letterWriter' },
-          { data: 'letterIcon', title: 'letterIcon' },
-          { data: 'letterFontSize', title: 'letterFontSize' },
-          { data: 'letterTextAlign', title: 'letterTextAlign' },
+          { data: 'letterId', title: 'letterId', render: function(data) { return render(data); }},
+          { data: 'userId', title: 'userId', render: function(data) { return render(data); }},
+          { data: 'letterContent', title: 'letterContent', render: function(data) { return render(data); }},
+          { data: 'letterFont', title: 'letterFont', render: function(data) { return render(data); }},
+          { data: 'letterFontColor', title: 'letterFontColor', render: function(data) { return render(data); }},
+          { data: 'letterPaper', title: 'letterPaper', render: function(data) { return render(data); }},
+          { data: 'letterWriter', title: 'letterWriter', render: function(data) { return render(data); }},
+          { data: 'letterIcon', title: 'letterIcon', render: function(data) { return render(data); }},
+          { data: 'letterFontSize', title: 'letterFontSize', render: function(data) { return render(data); }},
+          { data: 'letterTextAlign', title: 'letterTextAlign', render: function(data) { return render(data); }},
           { data: 'letterWriteDate', title: 'letterWriteDate',
             render: function(data) { return data ? timestampToDate(data) : ''; } 
           },
-          { data: 'letterReadYn', title: 'letterReadYn' },
-          { data: 'letterDelYn', title: 'letterDelYn' },
+          { data: 'letterReadYn', title: 'letterReadYn', render: function(data) { return render(data); }},
+          { data: 'letterDelYn', title: 'letterDelYn', render: function(data) { return render(data); }},
         ],
         order:[[10, "desc"]],
         info: false,
@@ -104,6 +105,6 @@ new Vue({
       clickUpdate : async function(){
         console.log("clickUpdate");
         this.mode = "update";
-      },      
+      }
     }
   });

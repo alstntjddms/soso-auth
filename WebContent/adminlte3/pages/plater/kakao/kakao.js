@@ -26,25 +26,26 @@ new Vue({
 
       $('#example1').DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        "buttons": ["excel", "pdf", "print", "colvis"],
         data: this.kakaos,
         columns: [
-          { data: 'id', title: 'id' },
-          { data: 'kakaoId', title: 'kakaoId' },
-          { data: 'kakaoAccessToken', title: 'kakaoAccessToken' },
-          { data: 'kakaoRefreshToken', title: 'kakaoRefreshToken' },
-          { data: 'kakaoEmail', title: 'kakaoEmail' },
-          { data: 'kakaoNickName', title: 'kakaoNickName' },
-          { data: 'kakaoGender', title: 'kakaoGender' },
-          { data: 'kakaoBirthday', title: 'kakaoBirthday' },
+          { data: 'id', title: 'id', render: function(data) { return render(data); }},
+          { data: 'kakaoId', title: 'kakaoId', render: function(data) { return render(data); }},
+          { data: 'kakaoAccessToken', title: 'kakaoAccessToken', render: function(data) { return render(data); }},
+          { data: 'kakaoRefreshToken', title: 'kakaoRefreshToken', render: function(data) { return render(data); }},
+          { data: 'kakaoEmail', title: 'kakaoEmail', render: function(data) { return render(data); }},
+          { data: 'kakaoNickName', title: 'kakaoNickName', render: function(data) { return render(data); }},
+          { data: 'kakaoGender', title: 'kakaoGender', render: function(data) { return render(data); }},
+          { data: 'kakaoBirthday', title: 'kakaoBirthday', render: function(data) { return render(data); }},
           { data: 'kakaoRegisterDate', title: 'kakaoRegisterDate',
             render: function(data) { return data ? timestampToDate(data) : ''; } 
           },
           { data: 'kakaoLoginDate', title: 'kakaoLoginDate',
             render: function(data) { return data ? timestampToDate(data) : ''; } 
           },
-          { data: 'kakaoMsgYn', title: 'kakaoMsgYn' },
-          { data: 'kakaoDefaultNickName', title: 'kakaoDefaultNickName' }
+          { data: 'kakaoMsgYn', title: 'kakaoMsgYn', render: function(data) { return render(data); }},
+          { data: 'kakaoDefaultNickName', title: 'kakaoDefaultNickName', render: function(data) { return render(data); }}
         ],
         order:[[0, "desc"]],
         info: false,

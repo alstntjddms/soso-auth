@@ -10,10 +10,6 @@ new Vue({
       if(this.name == "전민수"){
         this.minsu = true;
       };
-      // Iframe 플러그인 설정 tab과 sidebar 연결
-      $('.content-wrapper').IFrame({
-        allowReload : false
-      })
     },
     methods:{
       checkJwtToken: async function(){
@@ -25,6 +21,7 @@ new Vue({
         return getName(getCookie("sosoJwtToken")).aud;
       },
       refresh: function(){
+        console.log("aaa");
         // tab-pane 요소들 중에 active show 클래스를 가진 요소를 찾음
         if ($('.tab-content .tab-pane.active.show').length > 0) {
           // activeTabPane 내부의 iframe을 찾음
@@ -37,6 +34,10 @@ new Vue({
             iframe.attr('src', src);
           }
         }
+      },
+      logout: function(){
+        $.removeCookie('sosoJwtToken', { path: '/' });
+        location.reload();
       }
     }
   });

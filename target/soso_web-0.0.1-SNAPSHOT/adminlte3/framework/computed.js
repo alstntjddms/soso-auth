@@ -42,3 +42,7 @@ function getName(token){
 
   return JSON.parse(jsonPayload);
 }
+
+function render(data) {
+  return data?.length > 30 ? data.substring(0, 30) + '...' : data;
+}

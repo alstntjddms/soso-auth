@@ -19,7 +19,8 @@ new Vue({
 
       $('#example1').DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        "buttons": ["excel", "pdf", "print", "colvis"],
         data: this.members,
         columns: [
           { data: 'userId', title: 'userId' },

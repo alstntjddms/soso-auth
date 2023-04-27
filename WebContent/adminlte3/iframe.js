@@ -10,10 +10,6 @@ new Vue({
       if(this.name == "전민수"){
         this.minsu = true;
       };
-      // Iframe 플러그인 설정 tab과 sidebar 연결
-      $('.content-wrapper').IFrame({
-        allowReload : false
-      })
     },
     methods:{
       checkJwtToken: async function(){
@@ -37,6 +33,10 @@ new Vue({
             iframe.attr('src', src);
           }
         }
+      },
+      logout: function(){
+        $.removeCookie('sosoJwtToken', { path: '/' });
+        location.reload();
       }
     }
   });

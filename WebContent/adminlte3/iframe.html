@@ -171,7 +171,9 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{name}}</a>
+          <a href="#" class="d-block">{{name}}
+            <i class="fas fa-sign-out-alt ml-2" @click="logout"></i>
+          </a>
         </div>
       </div>
 
@@ -785,13 +787,13 @@
     </div>
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
+  <!-- <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0
     </div>
-  </footer>
+  </footer> -->
 
 </div>
 <!-- ./wrapper -->
@@ -802,6 +804,8 @@
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- jQuery Cookie -->
+<script src="plugins/jquery-cookie/jquery.cookie.min.js"></script>
 <!-- axios.js -->
 <script src="plugins/axios/axios.min.js"></script>
 <!-- Vue.js -->
