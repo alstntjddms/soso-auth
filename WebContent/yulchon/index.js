@@ -2,10 +2,26 @@ const Chat = (function(){
     const myName = "YC테스터";
     const toggle = false;
     const historyMsg = [
-        {"role": "system", "content": "You are a useful assistant at Yulchon Law Firm."},
-        {"role": "user", "content": "From now on, please answer in plain text only using the information I registered."},
-        {"role": "user", "content": "직원 정보 =[{이름:전민수,나이:27,회사:율촌,부서:개발팀,직무:홈페이지 개발},{ 이름:김갑수, 나이:37, 회사:율촌, 부서:인사팀, 직무:인사 이동},{ 이름:이미자, 나이:45, 회사:율촌, 부서:회계팀, 직무:사내 회계 관리},{ 이름:박지수, 나이:42, 회사:율촌, 부서:감사팀, 직무:사내 감사},{ 이름:김오리, 나이:44, 회사:율촌, 부서:업무지원팀, 직무:업무지원},{ 이름:감시자, 나이:45, 회사:율촌, 부서:감시팀, 직무:감시},{ 이름:국어책, 나이:57, 회사:율촌, 부서:송무팀, 직무:송무 관리},{ 이름:영어책, 나이:37, 회사:율촌, 부서:영어팀, 직무:영어 교육},{ 이름:김변호, 나이:22, 회사:율촌, 부서:(법무)부동산개발, 직무:부동산개발 상담},{ 이름:김판사, 나이:46, 회사:율촌, 부서:(송무)재판관리, 직무:재판 참석}]"},
-        {"role": "user", "content": "율촌 회사 정보 = {이름:법무법인(유) 율촌, 위치:서울 강남구 테헤란로 521 파르나스타워 38층, 전화번호:02-528-5200, 하는일:로펌, 법률서비스, 관련정보:법무법인,로펌,대한민국로펌, 홈페이지:https://www.yulchon.com}"}
+        {"role": "system", "content": " You are a helper who analyzes the user's needs, finds the functions in the most appropriate Among the data array I presented, and fills the parameters."},
+        {"role": "system", "content": + " Do not create functions that are not in the data array "
+                                    + " If the appropriate parameter is not found, put null."
+                                    + " The number of parameters cannot be checked and left out."
+                                    + " f''' perform the following action: "
+                                    + " 1 - Interpret the sentence and summarize the request. "
+                                    + " 2 - Extract only the key words. "
+                                    + " 3 - Find the best function in data array for the description and If the parameter is insufficient, ask for the deficiency again. "
+                                    + " 4 - Output The best function to fill in the parameters "
+                                    + " 5 - If all parameters are perfectly filled, only the value of the function responds. "
+                                    },
+
+        {"role": "system", "content": " Use the only following format in korean:"
+                                    + " Text: <request to summarize>"
+                                    + " Keywords: <keywords>"
+                                    + " Output JSON: <json with function and parameters)>"
+                                    + " Are all parameters populated?: <Only True or False>'''"},
+        {"role": "system", "content": "data=[{description:관리자를 등록한다., function:registerAuth(이름=name, 관리자키=authKey, 코드=code)},"
+                                    + "{description:관리자를 수정한다., function:updateAuth(이름=name, 관리자키=authKey, 코드=code)},"
+                                    + "{description:If you do not understand the request or do not find an appropriate description., function:idontknow()}]"},
         ]
     
     // init 함수
@@ -60,9 +76,6 @@ const Chat = (function(){
             }
         }
 
-    
-        
- 
         return chatLi;
     }
  
@@ -101,7 +114,8 @@ const Chat = (function(){
             data: JSON.stringify(             
                 {
                 "model": "gpt-3.5-turbo",
-                "messages": historyMsg
+                "messages": historyMsg,
+                "temperature": 0
                 }
             ),
             success: function (res) {
@@ -130,6 +144,95 @@ const Chat = (function(){
     function resive(data) {
         const LR = (data.senderName != myName)? "left" : "right";
         appendMessageTag(LR, data.senderName, data.message);
+        if(LR == "left"){
+            const text = data.message;
+
+            // Function 추출
+            const functionPattern = /"function"\s*:\s*"(\w+)"/;
+            const functionMatch = text.match(functionPattern);
+            const functionValue = functionMatch[1];
+
+            // Parameters 추출
+            const paramsPattern = /"parameters"\s*:\s*({[^{}]*})/;
+            const paramsMatch = text.match(paramsPattern);
+            const paramsStr = paramsMatch[1];
+            const parameters = JSON.parse(paramsStr);
+
+            // Are all parameters populated? 추출
+            const areParamsPopulatedPattern = /Are all parameters populated\?:\s*(\w+)/;
+            const areParamsPopulatedMatch = text.match(areParamsPopulatedPattern);
+            const areParamsPopulated = areParamsPopulatedMatch[1];
+
+            // 결과 출력
+            console.log(`Function: ${functionValue}`);
+            console.log(`Parameters: ${JSON.stringify(parameters)}`);
+            console.log(`Are all parameters populated?: ${areParamsPopulated}`);
+
+            if(areParamsPopulated == 'True'){
+                console.log("True");
+            }else if(areParamsPopulated == 'False'){
+                console.log("False");
+            }else{
+                console.log("응답 예외 발생");
+            }
+            
+            if(areParamsPopulated == 'True'){
+                if(functionValue == 'registerAuth'){
+                    console.log("parameters");
+                    console.log(parameters);
+                    if(parameters.이름 != null & parameters.관리자키 != null & parameters.코드 != null){
+                        console.log(parameters);
+                        if (confirm("관리자를 등록하시겠습니까?")) {
+                            console.log("User clicked 'Yes'");
+                            axios.post('https://plater.kr/api/manager', {
+                                                                        "id": "0",                                            
+                                                                        "name": parameters.이름,
+                                                                        "authKey": parameters.관리자키,
+                                                                        "code": parameters.코드})
+                                        .then(function(response){
+                                        console.log(response.data);
+                                        alert("등록에에 성공하였습니다.");})
+                                        .catch(function (error) {
+                                            console.log(error);
+                                            alert("등록에 실패하였습니다.");
+                                          });
+                          } else {
+                            console.log("User clicked 'No'");
+                          }
+                          
+                    }else{
+                        console.log(parameters);
+                    }
+                    
+                }else if(functionValue == 'updateAuth'){
+                    console.log("parameters");
+                    console.log(parameters);
+                    if(parameters.이름 != null && parameters.관리자키 != null && parameters.코드 != null){
+                        console.log(parameters);
+                        if (confirm("관리자를 수정하시겠습니까?")) {
+                            console.log("User clicked 'Yes'");
+                            axios.patch('https://plater.kr/api/manager', {
+                                                                        "id": "0",
+                                                                        "name": parameters.이름,
+                                                                        "authKey": parameters.관리자키,
+                                                                        "code": parameters.코드})
+                                .then(function(response){
+                                    console.log(response.data);
+                                    alert("수정에 성공하였습니다.");})
+                                    .catch(function (error) {
+                                        console.log(error);
+                                        alert("수정에 실패하였습니다.");
+                                        });
+                          } else {
+                            console.log("User clicked 'No'");
+                          }
+                          
+                    }else{
+                        console.log(parameters);
+                    }
+                }
+            }
+        }
     }
  
     return {

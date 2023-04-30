@@ -21,7 +21,6 @@ new Vue({
         return getName(getCookie("sosoJwtToken")).aud;
       },
       refresh: function(){
-        console.log("aaa");
         // tab-pane 요소들 중에 active show 클래스를 가진 요소를 찾음
         if ($('.tab-content .tab-pane.active.show').length > 0) {
           // activeTabPane 내부의 iframe을 찾음

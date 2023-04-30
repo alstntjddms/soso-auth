@@ -27,7 +27,7 @@ new Vue({
       $('#example1').DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false,
         // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-        "buttons": ["excel", "pdf", "print", "colvis"],
+        buttons: ["excel", "colvis"],
         data: this.kakaos,
         columns: [
           { data: 'id', title: 'id', render: function(data) { return render(data); }},
