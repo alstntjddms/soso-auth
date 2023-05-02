@@ -2,8 +2,8 @@ const Chat = (function(){
     const myName = "YC테스터";
     const toggle = false;
     const historyMsg = [
-        {"role": "system", "content": " You are a helper who analyzes the user's needs, finds the functions in the most appropriate Among the data array I presented, and fills the parameters."},
-        {"role": "system", "content": + " Do not create functions that are not in the data array "
+        {"role": "system", "content": " You are a helper who analyzes the user's needs, finds the functions in the most appropriate Among the data array I presented, and fills the parameters."
+                                    + " Do not create functions that are not in the data array "
                                     + " If the appropriate parameter is not found, put null."
                                     + " The number of parameters cannot be checked and left out."
                                     + " f''' perform the following action: "
@@ -12,14 +12,12 @@ const Chat = (function(){
                                     + " 3 - Find the best function in data array for the description and If the parameter is insufficient, ask for the deficiency again. "
                                     + " 4 - Output The best function to fill in the parameters "
                                     + " 5 - If all parameters are perfectly filled, only the value of the function responds. "
-                                    },
-
-        {"role": "system", "content": " Use the only following format in korean:"
+                                    + " Use the only following format in korean:"
                                     + " Text: <request to summarize>"
                                     + " Keywords: <keywords>"
                                     + " Output JSON: <json with function and parameters)>"
-                                    + " Are all parameters populated?: <Only True or False>'''"},
-        {"role": "system", "content": "data=[{description:관리자를 등록한다., function:registerAuth(이름=name, 관리자키=authKey, 코드=code)},"
+                                    + " Are all parameters populated?: <Only True or False>'''"
+                                    + "data=[{description:관리자를 등록한다., function:registerAuth(이름=name, 관리자키=authKey, 코드=code)},"
                                     + "{description:관리자를 수정한다., function:updateAuth(이름=name, 관리자키=authKey, 코드=code)},"
                                     + "{description:If you do not understand the request or do not find an appropriate description., function:idontknow()}]"},
         ]
@@ -109,7 +107,7 @@ const Chat = (function(){
             url: "https://api.openai.com/v1/chat/completions",
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Content-type","application/json");
-                xhr.setRequestHeader("Authorization","Bearer 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");
+                xhr.setRequestHeader("Authorization","Bearer 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");
             },
             data: JSON.stringify(             
                 {

@@ -1,7 +1,9 @@
+
 new Vue({
     el: '#app',
     data: {
-      mode:"default",
+      // create, update, save, read
+      mode:"read",
       manager:{
         id:"",
         name:"",
@@ -57,10 +59,8 @@ new Vue({
           // 모달 열기
           $('#modal-xl').modal('toggle');
         });
-        // 모달 닫힘 이벤트 처리
-        $('#modal-xl').on('hidden.bs.modal', function (e) {
-          self.mode = "default";
-        });
+        // 모달 닫기
+        self.closeModal(self);
       });
     },
     methods:{
@@ -78,7 +78,46 @@ new Vue({
       },
       clickUpdate : async function(){
         console.log("clickUpdate");
-        this.mode = "update";
+        this.mode = "save";
       },
-    }
+      clickSave : async function(){
+        console.log("clickSave");
+        console.log("this.manager");
+        console.log(this.manager);
+        await axios.patch('https://plater.kr/api/manager', this.manager)
+        .then(function(response){
+          console.log(response.data);
+          alert("수정에 성공하였습니다.");
+        }).catch(function (error) {
+        console.log(error);
+        alert("수정에 실패하였습니다.");
+        });
+        this.mode = "read";
+      },
+      create : async function(){
+        console.log(this.mode);
+        // 모달 열기
+        $('#modal-xl').modal('toggle');
+        this.mode = "create";
+      },
+      clickCreate: async function(){
+        console.log(this.manager);
+        await axios.post('https://plater.kr/api/manager', this.manager)
+        .then(function(response){
+          console.log(response.data);
+        }).catch(function (error) {
+            console.log(error);
+            alert("등록에 실패하였습니다.");
+          });
+      },
+      closeModal: function(self){
+        $('#modal-xl').on('hidden.bs.modal', function (e) {
+          self.mode = "read"; 
+          self.manager.id = "";
+          self.manager.name = "";
+          self.manager.authKey = "";
+          self.manager.code = "";
+        });
+      }
+    },
   });
