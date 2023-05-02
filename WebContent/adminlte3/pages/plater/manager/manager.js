@@ -81,9 +81,6 @@ new Vue({
         this.mode = "save";
       },
       clickSave : async function(){
-        console.log("clickSave");
-        console.log("this.manager");
-        console.log(this.manager);
         await axios.patch('https://plater.kr/api/manager', this.manager)
         .then(function(response){
           console.log(response.data);

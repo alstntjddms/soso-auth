@@ -6,7 +6,7 @@ const Chat = (function(){
                                     + " Do not create functions that are not in the data array "
                                     + " If the appropriate parameter is not found, put null."
                                     + " The number of parameters cannot be checked and left out."
-                                    + " f''' perform the following action: "
+                                    + " ''' perform the following action: "
                                     + " 1 - Interpret the sentence and summarize the request. "
                                     + " 2 - Extract only the key words. "
                                     + " 3 - Find the best function in data array for the description and If the parameter is insufficient, ask for the deficiency again. "
@@ -228,6 +228,8 @@ const Chat = (function(){
                     }else{
                         console.log(parameters);
                     }
+                }else{
+                    
                 }
             }
         }

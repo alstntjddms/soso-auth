@@ -81,20 +81,16 @@ new Vue({
         this.mode = "save";
       },
       clickSave : async function(){
-        console.log("clickSave");
-        console.log("this.manager");
-        console.log(this.manager);
         await axios.patch('https://plater.kr/api/manager', this.manager)
         .then(function(response){
           console.log(response.data);
-          alert("수정에 성공하였습니다.");
         }).catch(function (error) {
         console.log(error);
         alert("수정에 실패하였습니다.");
         });
         this.mode = "read";
       },
-      create : async function(){
+      openCreate : async function(){
         console.log(this.mode);
         // 모달 열기
         $('#modal-xl').modal('toggle');

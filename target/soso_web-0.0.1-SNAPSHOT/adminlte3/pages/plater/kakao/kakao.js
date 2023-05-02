@@ -102,6 +102,7 @@ new Vue({
           console.log(response.data);
           return response.data;
         }).catch(function(error) {
+          console.log(error);
           window.parent.location.reload()
         });
       },

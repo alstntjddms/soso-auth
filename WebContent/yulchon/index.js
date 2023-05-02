@@ -2,26 +2,26 @@ const Chat = (function(){
     const myName = "YC테스터";
     const toggle = false;
     const historyMsg = [
-        {"role": "system", "content": " You are a helper who analyzes the user's needs, finds the functions in the most appropriate Among the data array I presented, and fills the parameters."
-                                    + " Do not create functions that are not in the data array "
+        {"role": "system", "content": " You are the helper who finds the most appropriate function for the user's needs in the data list."},
+        {"role": "system", "content": + " You don't make anything but the function I suggested."
                                     + " If the appropriate parameter is not found, put null."
                                     + " The number of parameters cannot be checked and left out."
-                                    + " ''' perform the following action: "
+                                    + " f''' perform the following action: "
                                     + " 1 - Interpret the sentence and summarize the request. "
                                     + " 2 - Extract only the key words. "
                                     + " 3 - Find the best function in data array for the description and If the parameter is insufficient, ask for the deficiency again. "
                                     + " 4 - Output The best function to fill in the parameters "
-                                    + " 5 - If all parameters are perfectly filled, only the value of the function responds. "
-                                    + " Use the only following format in korean:"
+                                    + " 5 - If all parameters are perfectly filled, only the value of the function responds. "},
+        {"role": "system", "content": " Use the only following format:"
                                     + " Text: <request to summarize>"
                                     + " Keywords: <keywords>"
-                                    + " Output JSON: <json with function and parameters)>"
-                                    + " Are all parameters populated?: <Only True or False>'''"
-                                    + "data=[{description:관리자를 등록한다., function:registerAuth(이름=name, 관리자키=authKey, 코드=code)},"
+                                    + " Output JSON: <Only json with function and parameters>"
+                                    + " Are all parameters populated?: <Only True or False>'''"},
+        {"role": "system", "content": "data=[{description:관리자를 등록한다., function:registerAuth(이름=name, 관리자키=authKey, 코드=code)},"
                                     + "{description:관리자를 수정한다., function:updateAuth(이름=name, 관리자키=authKey, 코드=code)},"
                                     + "{description:If you do not understand the request or do not find an appropriate description., function:idontknow()}]"},
-        ]
-    
+    ]
+
     // init 함수
     function init() {
         
@@ -113,7 +113,7 @@ const Chat = (function(){
                 {
                 "model": "gpt-3.5-turbo",
                 "messages": historyMsg,
-                "temperature": 0
+                "temperature": 0,
                 }
             ),
             success: function (res) {
@@ -144,6 +144,11 @@ const Chat = (function(){
         appendMessageTag(LR, data.senderName, data.message);
         if(LR == "left"){
             const text = data.message;
+
+            if (text.includes("Output JSON: null")) {
+                console.log("찾을 수 없음");
+                return
+              }
 
             // Function 추출
             const functionPattern = /"function"\s*:\s*"(\w+)"/;
@@ -228,6 +233,8 @@ const Chat = (function(){
                     }else{
                         console.log(parameters);
                     }
+                }else{
+
                 }
             }
         }

@@ -27,7 +27,7 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
 
-  <!-- Content Wrapper. Contains page content -->
+<!-- 메인 콘텐츠 START -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -83,13 +83,17 @@
     </section>
     <!-- /.content -->
   </div>
+<!-- 메인 콘텐츠 END -->
 
+<!-- 모달창 START -->
   <!-- /.modal -->
   <div class="modal fade" id="modal-xl">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">멤버 조회</h4>
+          <h4 v-if="mode =='read'" class="modal-title">매니저 조회</h4>
+          <h4 v-if="mode =='save'" class="modal-title">매니저 수정</h4>
+          <h4 v-if="mode =='create'" class="modal-title">매니저 생성</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -136,7 +140,6 @@
             <button v-if="mode =='read'" type="button" class="btn btn-success" @click="clickUpdate">수정</button>
             <button v-if="mode =='save'" type="button" class="btn btn-primary" @click="clickSave">저장</button>
             <button v-if="mode =='create'" type="button" class="btn btn-primary" @click="clickCreate">생성</button>
-
           </div>
         </div>
       </div>
@@ -145,6 +148,7 @@
     <!-- /.modal-dialog -->
   </div>
   <!-- /.modal -->
+<!-- 모달창 End -->
   
 </div>
 <!-- ./wrapper -->

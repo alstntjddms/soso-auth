@@ -83,10 +83,8 @@ new Vue({
           // 모달 열기
           $('#modal-xl').modal('toggle');
         });
-        // 모달 닫힘 이벤트 처리
-        $('#modal-xl').on('hidden.bs.modal', function (e) {
-          self.mode = "default";
-        });
+        // 모달 닫기
+        self.closeModal(self);
       });
     },
     methods:{
@@ -99,12 +97,22 @@ new Vue({
           console.log(response.data);
           return response.data;
         }).catch(function(error) {
+          console.log(error);
           window.parent.location.reload()
         });
       },
       clickUpdate : async function(){
         console.log("clickUpdate");
         this.mode = "update";
+      },
+      closeModal: function(self){
+        $('#modal-xl').on('hidden.bs.modal', function (e) {
+          self.mode = "read"; 
+          self.manager.id = "";
+          self.manager.name = "";
+          self.manager.authKey = "";
+          self.manager.code = "";
+        });
       }
     }
   });
