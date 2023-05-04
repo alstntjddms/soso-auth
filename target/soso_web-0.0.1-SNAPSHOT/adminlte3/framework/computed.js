@@ -1,48 +1,39 @@
-function timestampToDate(timestamp) {
-  const d = new Date(timestamp);
-  const koreanTime = new Date(d.getTime() + (9 * 60 * 60 * 1000)); // 한국 표준시(UTC+9)로 시간 조정
-  return koreanTime.toISOString().slice(0, 19).replace('T', ' ');
+export function timestampToDate(timestamp) {
+  return new Date(timestamp + 9 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' ');
 }
 
-function getSosoJwtToken(){
-  // 쿠키에서 sosoJwtToken 값을 가져옴
-  const cookies = document.cookie.split(';');
-  for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].trim();
-    if (cookie.startsWith('sosoJwtToken=')) {
-      return cookie.substring('sosoJwtToken='.length, cookie.length);
+export function getSosoJwtToken() {
+  const cookieValue = document.cookie.match(/(?<=^|;)\s*sosoJwtToken\s*=\s*([^;]+)(?=;|$)/)?.[1];
+  return cookieValue ?? null;
+}
+
+export function getCookie(name) {
+  const cookieList = document.cookie.split('; ');
+  for (const cookie of cookieList) {
+    const [cookieName, cookieValue] = cookie.split('=');
+    if (cookieName === name) {
+      return decodeURIComponent(cookieValue);
     }
   }
-  return null;
+  return '';
 }
 
-function getCookie(name) {
-  var nameOfCookie = name + "=";
-  var x = 0;
-  while (x <= document.cookie.length) {
-       var y = (x + nameOfCookie.length);
-       if (document.cookie.substring(x, y) == nameOfCookie) {
-            if ((endOfCookie = document.cookie.indexOf(";", y)) == -1)
-                 endOfCookie = document.cookie.length;
-            return unescape(document.cookie.substring(y, endOfCookie));
-       }
-       x = document.cookie.indexOf(" ", x) + 1;
-       if (x == 0)
-            break;
+export function getNameFromToken(token) {
+  const [, base64Url = ''] = token.split('.');
+  if (!base64Url) {
+    throw new Error('Invalid token format');
   }
-  return "";
+  const padding = '='.repeat((4 - base64Url.length % 4) % 4);
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/') + padding;
+  const decodedPayload = decodeURIComponent(
+    Array.prototype.map.call(
+      atob(base64),
+      c => `%${('0' + c.charCodeAt(0).toString(16)).slice(-2)}`
+    ).join('')
+  );
+  return JSON.parse(decodedPayload);
 }
 
-function getName(token){
-  var base64Url = token.split('.')[1];
-  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-  }).join(''));
-
-  return JSON.parse(jsonPayload);
-}
-
-function render(data) {
-  return data?.length > 30 ? data.substring(0, 30) + '...' : data;
+export function render(data) {
+  return (data?.length ?? 0) > 30 ? `${data.slice(0, 30)}...` : data;
 }

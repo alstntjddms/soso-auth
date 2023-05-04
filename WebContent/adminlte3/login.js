@@ -1,3 +1,5 @@
+import { getSosoJwtToken } from "./framework/computed.js";
+
 new Vue({
     el: '#app',
     data: {
@@ -5,10 +7,7 @@ new Vue({
         errMsg: ""
     },
     mounted : async function(){
-        console.log("aaaa");
-        await this.checkJwtToken();
-        console.log("aaaa1");
-        
+        await this.checkJwtToken();        
     },
     methods:{
         login : async function(){
@@ -47,8 +46,8 @@ new Vue({
         },
         checkJwtToken: async function(){
             if(getSosoJwtToken() != null){
-            console.log("login");
-            window.location.href = 'iframe.html';
+                console.log("login");
+                window.location.href = './iframe.html';
             }
         }
     }

@@ -1,3 +1,5 @@
+import { timestampToDate, getSosoJwtToken } from "../../../framework/computed.js";
+
 new Vue({
     el: '#app',
     data: {
