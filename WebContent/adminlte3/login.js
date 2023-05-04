@@ -28,7 +28,7 @@ new Vue({
             $('.loader-wrapper').hide();
             
             // 로그인 로그
-            await axios.get('https://plater.kr/api/request/log?/authLogin/'+this.authCode);
+            await axios.get('https://plater.kr/api/request/log?/authLogin/' + this.authCode);
       
           },
         sendCode : async function(){
