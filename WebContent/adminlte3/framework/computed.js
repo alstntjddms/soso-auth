@@ -1,10 +1,10 @@
-function timestampToDate(timestamp) {
+export function timestampToDate(timestamp) {
   const d = new Date(timestamp);
   const koreanTime = new Date(d.getTime() + (9 * 60 * 60 * 1000)); // 한국 표준시(UTC+9)로 시간 조정
   return koreanTime.toISOString().slice(0, 19).replace('T', ' ');
 }
 
-function getSosoJwtToken(){
+export function getSosoJwtToken(){
   // 쿠키에서 sosoJwtToken 값을 가져옴
   const cookies = document.cookie.split(';');
   for (let i = 0; i < cookies.length; i++) {
@@ -16,7 +16,7 @@ function getSosoJwtToken(){
   return null;
 }
 
-function getCookie(name) {
+export function getCookie(name) {
   var nameOfCookie = name + "=";
   var x = 0;
   while (x <= document.cookie.length) {
@@ -33,7 +33,7 @@ function getCookie(name) {
   return "";
 }
 
-function getName(token){
+export function getName(token){
   var base64Url = token.split('.')[1];
   var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
   var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
@@ -43,6 +43,6 @@ function getName(token){
   return JSON.parse(jsonPayload);
 }
 
-function render(data) {
+export function render(data) {
   return data?.length > 30 ? data.substring(0, 30) + '...' : data;
 }

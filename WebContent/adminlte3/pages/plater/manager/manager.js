@@ -1,3 +1,4 @@
+import { getSosoJwtToken } from "../../../framework/computed.js";
 
 new Vue({
     el: '#app',
