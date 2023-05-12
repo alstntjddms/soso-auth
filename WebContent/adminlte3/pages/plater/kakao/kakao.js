@@ -15,8 +15,7 @@ new Vue({
         kakaoBirthday:"",
         kakaoRegisterDate:"",
         kakaoLoginDate:"",
-        kakaoMsgYn:"",
-        kakaoDefaultNickName:""
+        kakaoMsgYn:""
       },
       kakaos: [],
     },
@@ -47,7 +46,6 @@ new Vue({
             render: function(data) { return data ? timestampToDate(data) : ''; } 
           },
           { data: 'kakaoMsgYn', title: 'kakaoMsgYn', render: function(data) { return render(data); }},
-          { data: 'kakaoDefaultNickName', title: 'kakaoDefaultNickName', render: function(data) { return render(data); }}
         ],
         order:[[0, "desc"]],
         info: false,
@@ -83,7 +81,6 @@ new Vue({
           self.kakao.kakaoRegisterDate = data.kakaoRegisterDate;
           self.kakao.kakaoLoginDate = data.kakaoLoginDate;
           self.kakao.kakaoMsgYn = data.kakaoMsgYn;
-          self.kakao.kakaoDefaultNickName = data.kakaoDefaultNickName;
 
           // 모달 열기
           $('#modal-xl').modal('toggle');
