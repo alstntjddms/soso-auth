@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link
+      id="favicon"
+      rel="shortcut icon"
+      type="image/png"
+      href="./favicon.png"
+    />
+    <link rel="icon" href="./favicon.svg" />
+
+    <meta property="og:image" content="./ogimg.jpg" />
+
+    <meta property="og:title" content="해피니스 산스 Happiness Sans" />
+    <meta property="og:site_name" content="해피니스 산스 Happiness Sans" />
+    <meta property="twitter:title" content="해피니스 산스 Happiness Sans" />
+
+    <meta
+      property="twitter:description"
+      content="현대백화점의 새로운 폰트, 해피니스 산스"
+    />
+    <meta
+      property="og:description"
+      content="현대백화점의 새로운 폰트, 해피니스 산스"
+    />
+    <meta
+      name="description"
+      content="현대백화점의 새로운 폰트, 해피니스 산스"
+    />
+
+    <title>해피니스 산스 Happiness Sans</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics : develop url -->
+    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZLE56MBQED"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-ZLE56MBQED');
+	</script>-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics : release url -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-CESNEVFLCQ"></script> -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CESNEVFLCQ");
+    </script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+    <!--ie-notice-->
+    <style type="text/css">
+      #ie-notice {
+        display: none;
+        font-family: sans-serif;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: var(--100vh);
+        z-index: 1000000000000000;
+        background: white;
+        box-sizing: border-box;
+        padding: 20px;
+      }
+
+      .ie-text {
+        line-height: 1.6;
+        font-size: 2.8vw;
+        text-align: center;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      /* 버튼 스타일 설정 */
+      .kakao-share-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f7e600;
+        color: #000000;
+        font-weight: bold;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+
+    <div id="ie-notice">
+      <div class="ie-text">
+        본 웹사이트는 Internet Explorer 환경에서 정상적으로 작동하지 않습니다.
+        <br />
+        Edge, Chrome, Safari 등의 다른 브라우저를 이용해 주세요.
+      </div>
+    </div>
+    <script type="text/javascript">
+      {
+        var ua = window.navigator.userAgent;
+        var old_ie = ua.indexOf("MSIE ");
+        var new_ie = ua.indexOf("Trident/");
+        console.log(ua);
+        if (old_ie > -1 || new_ie > -1) {
+          document.getElementById("ie-notice").style.display = "block";
+          console.error("No support for IE");
+        }
+        if (document.location.protocol == "http:") {
+          document.location.href = document.location.href
+            .replace("http:", "https:")
+            .replace(":18010", ":18011");
+        }
+      }
+    </script>
+
+    <!--styles-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/fonts.css" />
+    <link rel="stylesheet" href="./assets/css/main.css?ver=1.7" />
+    <link rel="stylesheet" href="./assets/css/main_media.css?ver=1.3" />
+
+    <style id="style"></style>
+
+    <!--libraries used globally-->
+    <script src="./assets/js/libs/jquery-3.6.0.js"></script>
+    <!--<script src="./assets/js/libs/jquery.lazy.min.js"></script>-->
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  </head>
+  <body>
+    <!--preloader-->
+    <div class="preloader" id="preloader"></div>
+
+    <!-- menu bar -->
+    <nav class="menubar" id="menubar" style="display: none">
+      <span id="item-title" class="btn">
+        <a href="#top" id="a-top">
+          <span>
+            <svg
+              version="1.1"
+              id="ic_flag"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 32 32"
+              style="enable-background: new 0 0 32 32"
+              xml:space="preserve"
+            >
+              <style type="text/css">
+                .st0 {
+                  fill: none;
+                }
+                .st1 {
+                  fill: #221e1f;
+                }
+              </style>
+              <rect id="사각형_295" y="0" class="st0" width="32" height="32" />
+              <path
+                class="st1 flag"
+                d="M15,22.8c-0.3,0-0.7,0-1,0v-9.3l13.6-4.8L12,3.2v3.9h0v15.8c-3.5,0.4-6,1.5-6,2.8c0,1.7,4,3,9,3s9-1.3,9-3
+						S20,22.8,15,22.8z"
+              />
+            </svg>
+          </span>
+        </a>
+      </span>
+      <span id="item-intro" class="btn"
+        ><a href="#intro" id="a-intro">서체소개</a></span
+      >
+      <span id="item-write" class="btn"
+        ><a href="#write" id="a-write">써보기</a></span
+      >
+      <span id="item-card" class="btn"
+        ><a href="#card" id="a-card">카드쓰기</a></span
+      >
+      <span id="item-download" class="btn pc"
+        ><a href="#download" id="a-download">다운로드</a></span
+      >
+      <span class="btn mobile" id="menu-toggle">
+        <span class="open"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 13.5">
+            <defs>
+              <style>
+                .cls-0 {
+                  fill: none;
+                  stroke: #222;
+                  stroke-width: 1.5px;
+                }
+              </style>
+            </defs>
+            <g id="레이어_2" data-name="레이어 2">
+              <g id="레이어_1-2" data-name="레이어 1">
+                <g id="그룹_78" data-name="그룹 78">
+                  <g id="그룹_37" data-name="그룹 37">
+                    <line
+                      id="선_3"
+                      data-name="선 3"
+                      class="cls-0"
+                      y1="0.75"
+                      x2="16"
+                      y2="0.75"
+                    />
+                    <line
+                      id="선_4"
+                      data-name="선 4"
+                      class="cls-0"
+                      y1="6.75"
+                      x2="16"
+                      y2="6.75"
+                    />
+                    <line
+                      id="선_5"
+                      data-name="선 5"
+                      class="cls-0"
+                      y1="12.75"
+                      x2="16"
+                      y2="12.75"
+                    />
+                  </g>
+                </g>
+              </g>
+            </g></svg
+        ></span>
+        <span class="close"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.79 13.79">
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: #222;
+                  stroke-width: 0px;
+                }
+              </style>
+            </defs>
+            <g id="레이어_2" data-name="레이어 2">
+              <g id="레이어_1-2" data-name="레이어 1">
+                <g id="그룹_39" data-name="그룹 39">
+                  <g id="그룹_32" data-name="그룹 32">
+                    <rect
+                      id="사각형_80"
+                      data-name="사각형 80"
+                      class="cls-1"
+                      x="6.14"
+                      y="-2.11"
+                      width="1.5"
+                      height="18"
+                      transform="translate(-2.86 6.89) rotate(-45)"
+                    />
+                    <rect
+                      id="사각형_86"
+                      data-name="사각형 86"
+                      class="cls-1"
+                      x="-2.11"
+                      y="6.14"
+                      width="18"
+                      height="1.5"
+                      transform="translate(-2.86 6.89) rotate(-45)"
+                    />
+                  </g>
+                </g>
+              </g>
+            </g></svg
+        ></span>
+      </span>
+    </nav>
+
+    <!--main scroll-->
+    <div class="mainpage" id="mainpage">
+      <!-- title : gif image -->
+      <div class="top" id="top">
+        <div class="block" style="display: none">
+          <div class="title">Happiness Sans</div>
+          <!--<video class="pc" style="display: none;" id="top-video" data-src="./assets/media/mp4/intro.mp4" playsinline muted autoplay loop></video>-->
+        </div>
+      </div>
+
+      <!-- introduction -->
+      <div class="intro" id="intro" style="display: none">
+        <div class="block one white mobile-grey">
+          <div class="wrapper">
+            <div class="txt-center content">현대백화점의 새로운 폰트</div>
+            <div class="txt-center title">해피니스 산스</div>
+            <div class="txt-center content pc">
+              현대백화점은 ‘고객을 행복하게, 세상을 풍요롭게’라는 브랜드 미션을
+              품은<br />
+              새로운 전용 서체 해피니스 산스(Happiness Sans)를 선보입니다.<br />
+              일상 속 행복의 가치를 세상에 나누고자 만들어진 해피니스 산스는<br />
+              누구나 자유롭게 무료로 사용할 수 있습니다.
+            </div>
+            <div class="txt-center content mobile">
+              현대백화점은 ‘고객을 행복하게, 세상을 풍요롭게’라는<br />
+              브랜드 미션을 품은 새로운 전용 서체<br />
+              해피니스 산스(Happiness Sans)를 선보입니다.<br />
+              일상 속 행복의 가치를 세상에 나누고자<br />
+              만들어진 해피니스 산스는 누구나 자유롭게<br />
+              무료로 사용할 수 있습니다.
+            </div>
+          </div>
+        </div>
+        <div class="block grey">
+          <div class="wrapper">
+            <div class="gif-wrapper-r">
+              <video
+                class="lazy"
+                data-src="./assets/media/mp4/font-1-1.mp4"
+                playsinline
+                muted
+                autoplay
+                loop
+              ></video>
+              <!--<img class="lazy mobile" data-src="./assets/media/gif/font_one.gif,./assets/media/gif/font_one_2.gif">-->
+            </div>
+            <div class="txt-wrapper-r">
+              <div class="subtitle">
+                행복을 담은 경쾌한 획,<br />
+                해피니스 산스
+              </div>
+              <div class="content pc">
+                해피니스 산스는 획 끝의 상승하는 곡선과 개성 있는<br />
+                상투의 형태에 손글씨의 미감이 느껴지는 고딕 계열의<br />
+                서체입니다. 안정적인 글자 구조에 더해진 부드러운<br />
+                미감은 인간적이며 경쾌한 행복의 인상을 전달합니다.
+              </div>
+              <div class="content mobile">
+                해피니스 산스는 획 끝의 상승하는 곡선과 개성 있는<br />
+                상투의 형태에 손글씨의 미감이 느껴지는 고딕 계열의<br />
+                서체입니다. 안정적인 글자 구조에 더해진 부드러운<br />
+                미감은 인간적이며 경쾌한 행복의 인상을 전달합니다.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block grey">
+          <div class="wrapper">
+            <div class="gif-wrapper-l">
+              <!-- <video class="lazy" data-src="./assets/media/mp4/font-2.mp4" style="border-radius: 36px" playsinline muted autoplay loop></video> -->
+              <!--<img class="lazy mobile" data-src="./assets/media/gif/font_two.gif">-->
+              <div class="box-set">
+                <div class="top-left"><span>꽃</span></div>
+                <div class="top-right"><span>a</span></div>
+                <div class="bottom-left"><span>t</span></div>
+                <div class="bottom-right"><span>삶</span></div>
+              </div>
+
+              <div class="box-set">
+                <div class="top-left two"><span>g</span></div>
+                <div class="top-right two"><span>세</span></div>
+                <div class="bottom-left two"><span>과</span></div>
+                <div class="bottom-right two"><span>fi</span></div>
+              </div>
+            </div>
+            <div class="txt-wrapper-l">
+              <div class="subtitle">하나의 서체에 담은 다양한 굵기와 너비</div>
+              <div class="content pc">
+                해피니스 산스는 굵기와 형태를 세밀하게 조절해<br />
+                원하는 인상을 직접 만들 수 있는 배리어블 포맷을<br />
+                지원합니다. 타이틀부터 레귤러까지, 해피니스<br />
+                산스가 품고 있는 다양한 형태를 만나보세요.
+              </div>
+              <div class="content mobile">
+                해피니스 산스는 굵기와 형태를 세밀하게 조절해<br />
+                원하는 인상을 직접 만들 수 있는 배리어블 포맷을<br />
+                지원합니다. 타이틀부터 레귤러까지, 해피니스 산스가<br />
+                품고 있는 다양한 형태를 만나보세요.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block grey">
+          <div class="wrapper">
+            <div class="gif-wrapper-r">
+              <video
+                class="lazy"
+                data-src="./assets/media/mp4/font-3.mp4"
+                playsinline
+                muted
+                autoplay
+                loop
+              ></video>
+              <!--<img class="lazy mobile" data-src="./assets/media/gif/font_three.gif">-->
+            </div>
+            <div class="txt-wrapper-r">
+              <div class="subtitle">
+                다양한 사용 환경을<br />
+                고려한 실용성
+              </div>
+              <div class="content pc">
+                해피니스 산스의 넓고 청량한 속공간과 간결한<br />
+                이음줄기는 오프라인 뿐만 아니라 디지털 환경에서도<br />
+                높은 가독성을 보여줍니다. 선택 가능한<br />
+                고정폭과 가변폭 숫자, 대체 글리프 옵션은 다양한<br />
+                프로그램에서 원하는 인상을 만들기에 적합합니다.
+              </div>
+              <div class="content mobile">
+                해피니스 산스의 넓고 청량한 속공간과 간결한<br />
+                이음줄기는 오프라인 뿐만 아니라 디지털 환경에서도<br />
+                높은 가독성을 보여줍니다. 선택 가능한 고정폭과<br />
+                가변폭 숫자, 대체 글리프 옵션은 다양한 프로그램에서<br />
+                원하는 인상을 만들기에 적합합니다.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block grey footline"><div class="wrapper line"></div></div>
+        <div class="block grey foot">
+          <div class="wrapper">
+            <div class="footnote pc">
+              *배리어블/가변폭 숫자 포맷 사용 가능 환경<br />
+              Opentype 기능을 지원하는 어도비 크리에이티브 클라우드(Adobe
+              Creative Cloud), CSS, 스케치(Sketch), 피그마(Figma) 등.<br />
+              오픈타입 기능의 지원 범위는 어플리케이션마다 다르며, 별도의
+              플러그인 설치가 필요할 수 있습니다.
+            </div>
+            <div class="footnote mobile">
+              *배리어블/가변폭 숫자 포맷 사용 가능 환경<br />
+              Opentype 기능을 지원하는 어도비 크리에이티브<br />
+              클라우드(Adobe Creative Cloud), CSS, 스케치(Sketch),<br />
+              피그마(Figma) 등. 오픈타입 기능의 지원 범위는 어플리케이션마다<br />
+              다르며, 별도의 플러그인 설치가 필요할 수 있습니다.
+            </div>
+          </div>
+        </div>
+        <div class="block grey">
+          <div class="wrapper">
+            <div class="glyph-grid clearfix" id="glyph-grid"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- write and experience -->
+      <div class="write white" id="write" style="padding-bottom: 2em">
+        <div class="block scroll-track" style="display: none">
+          <div class="wrapper">
+            <div class="title">해피니스 산스 써보기</div>
+            <div class="desc pc">
+              해피니스 산스의 다양한 모습을 아름다운 문장으로 만나보세요.<br />
+              원하는 메시지를 직접 써보고, 형태를 조절해볼 수 있습니다.
+            </div>
+            <div class="desc mobile">
+              해피니스 산스의 다양한 모습을 아름다운 문장으로<br />
+              만나보세요. 원하는 메시지를 직접 써보고,<br />
+              형태를 조절해볼 수 있습니다.
+            </div>
+            <div class="btn-wrapper slideutil">
+              <!--
+	  					-->
+              <div class="slidecontainer green">
+                <div class="slide-title">굵기 조절</div>
+                <div class="slide-wrapper">
+                  <span class="marker"></span>
+                  <span class="slider"></span>
+                  <input
+                    id="short-text-family"
+                    class="realslider"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="50"
+                  />
+                </div>
+                <div class="labels">
+                  <div class="label">레귤러</div>
+                  <div class="label">볼드</div>
+                  <div class="label">타이틀</div>
+                </div>
+              </div>
+              <!--
+						-->
+              <div class="slidecontainer blue">
+                <div class="slide-title">크기 조절</div>
+                <div class="slide-wrapper">
+                  <span class="slider"></span>
+                  <input
+                    id="short-text-size"
+                    class="realslider"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="100"
+                  />
+                </div>
+                <div class="labels">
+                  <div class="label">작게</div>
+                  <div class="label">크게</div>
+                </div>
+              </div>
+              <!--
+						-->
+              <div class="refresh-wrapper">
+                <div class="refresh-btn btn" id="short-text-refresh">
+                  <span class="pc">새 문구</span
+                  ><span class="mobile">다른 문장 보기</span
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 14 14.11"
+                  >
+                    <defs>
+                      <style>
+                        .cls-1l,
+                        .cls-2l {
+                          fill: none;
+                        }
+                        .cls-2l {
+                          stroke: #222;
+                          stroke-miterlimit: 10;
+                          stroke-width: 1.3px;
+                        }
+                      </style>
+                    </defs>
+                    <g id="레이어_2" data-name="레이어 2">
+                      <g id="레이어_1-2" data-name="레이어 1">
+                        <g id="그룹_25" data-name="그룹 25">
+                          <rect
+                            id="사각형_79"
+                            data-name="사각형 79"
+                            class="cls-1l"
+                            width="14"
+                            height="14"
+                          />
+                          <path
+                            id="패스_14"
+                            data-name="패스 14"
+                            class="cls-2l"
+                            d="M12,5.69A5.51,5.51,0,1,1,7,2.45"
+                          />
+                          <path
+                            id="패스_15"
+                            data-name="패스 15"
+                            class="cls-2l"
+                            d="M5.2.54,7.53,2.47,5.6,4.8"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <!--
+	  				-->
+            </div>
+            <div class="content short-text">
+              <div
+                id="short-text"
+                class="scroll-focus"
+                contenteditable="true"
+              ></div>
+            </div>
+            <div class="footnote" id="short-text-footnote"></div>
+          </div>
+        </div>
+        <div class="block long scroll-track" style="display: none">
+          <div class="wrapper">
+            <div class="btn-wrapper slideutil">
+              <!--
+	  					-->
+              <div class="slidecontainer green">
+                <div class="slide-title">굵기 조절</div>
+                <div class="slide-wrapper">
+                  <span class="marker"></span>
+                  <span class="slider"></span>
+                  <input
+                    id="long-text-family"
+                    class="realslider"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="50"
+                  />
+                </div>
+                <div class="labels">
+                  <span class="label">레귤러</span>
+                  <span class="label">볼드</span>
+                  <span class="label">타이틀</span>
+                </div>
+              </div>
+              <!--
+						-->
+              <div class="slidecontainer blue">
+                <div class="slide-title">크기 조절</div>
+                <div class="slide-wrapper">
+                  <span class="slider"></span>
+                  <input
+                    id="long-text-size"
+                    class="realslider"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="100"
+                  />
+                </div>
+                <div class="labels">
+                  <span class="label">작게</span>
+                  <span class="label">크게</span>
+                </div>
+              </div>
+              <!--
+						-->
+              <div class="refresh-wrapper">
+                <div class="refresh-btn btn" id="long-text-refresh">
+                  <span class="pc">새 문구</span
+                  ><span class="mobile">다른 문장 보기</span
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 14 14.11"
+                  >
+                    <defs>
+                      <style>
+                        .cls-1l,
+                        .cls-2l {
+                          fill: none;
+                        }
+                        .cls-2l {
+                          stroke: #222;
+                          stroke-miterlimit: 10;
+                          stroke-width: 1.3px;
+                        }
+                      </style>
+                    </defs>
+                    <g id="레이어_2" data-name="레이어 2">
+                      <g id="레이어_1-2" data-name="레이어 1">
+                        <g id="그룹_25" data-name="그룹 25">
+                          <rect
+                            id="사각형_79"
+                            data-name="사각형 79"
+                            class="cls-1l"
+                            width="14"
+                            height="14"
+                          />
+                          <path
+                            id="패스_14"
+                            data-name="패스 14"
+                            class="cls-2l"
+                            d="M12,5.69A5.51,5.51,0,1,1,7,2.45"
+                          />
+                          <path
+                            id="패스_15"
+                            data-name="패스 15"
+                            class="cls-2l"
+                            d="M5.2.54,7.53,2.47,5.6,4.8"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <!--
+	  				-->
+            </div>
+            <div class="content long-text">
+              <div
+                id="long-text"
+                class="scroll-focus"
+                contenteditable="true"
+              ></div>
+            </div>
+            <div class="footnote" id="long-text-footnote"></div>
+          </div>
+        </div>
+        <div
+          class="block card-block mobile-grey clearfix"
+          id="card"
+          style="margin-bottom: 2em"
+        >
+          <div class="wrapper">
+            <div class="title">YC Happy Message</div>
+            <div class="desc pc">
+              카드를 골라 소중한 사람에게 메시지를 적어보세요.<br />
+              완성된 이미지는 다운로드할 수 있어요.
+            </div>
+            <div class="desc mobile">
+              카드를 골라 소중한 사람에게 메시지를 적어보세요.<br />
+              완성된 이미지는 다운로드할 수 있어요.
+            </div>
+            <div class="btn-wrapper clearfix mobile">
+              <div class="btn" id="empty-card-mobile">
+                다시 쓰기<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 14 14.11"
+                >
+                  <defs>
+                    <style>
+                      .cls-1l,
+                      .cls-2l {
+                        fill: none;
+                      }
+                      .cls-2l {
+                        stroke: #222;
+                        stroke-miterlimit: 10;
+                        stroke-width: 1.3px;
+                      }
+                    </style>
+                  </defs>
+                  <g id="레이어_2" data-name="레이어 2">
+                    <g id="레이어_1-2" data-name="레이어 1">
+                      <g id="그룹_25" data-name="그룹 25">
+                        <rect
+                          id="사각형_79"
+                          data-name="사각형 79"
+                          class="cls-1l"
+                          width="14"
+                          height="14"
+                        />
+                        <path
+                          id="패스_14"
+                          data-name="패스 14"
+                          class="cls-2l"
+                          d="M12,5.69A5.51,5.51,0,1,1,7,2.45"
+                        />
+                        <path
+                          id="패스_15"
+                          data-name="패스 15"
+                          class="cls-2l"
+                          d="M5.2.54,7.53,2.47,5.6,4.8"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="btn" id="save-card-img-mobile">
+                저장하기<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 14 14"
+                >
+                  <defs>
+                    <style>
+                      .cls-1d,
+                      .cls-2d {
+                        fill: none;
+                      }
+                      .cls-2d {
+                        stroke: #222;
+                        stroke-miterlimit: 10;
+                        stroke-width: 1.2px;
+                      }
+                    </style>
+                  </defs>
+                  <g id="레이어_2" data-name="레이어 2">
+                    <g id="레이어_1-2" data-name="레이어 1">
+                      <rect
+                        id="사각형_78"
+                        data-name="사각형 78"
+                        class="cls-1d"
+                        width="14"
+                        height="14"
+                      />
+                      <path
+                        id="패스_11"
+                        data-name="패스 11"
+                        class="cls-2d"
+                        d="M11.32,6,7,10.28,2.68,6"
+                      />
+                      <line
+                        id="선_1"
+                        data-name="선 1"
+                        class="cls-2d"
+                        x1="7"
+                        y1="10.06"
+                        x2="7"
+                        y2="0.98"
+                      />
+                      <line
+                        id="선_2"
+                        data-name="선 2"
+                        class="cls-2d"
+                        x1="1.31"
+                        y1="12.49"
+                        x2="12.69"
+                        y2="12.49"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div class="card clearfix">
+              <div class="left" id="capture-content">
+                <div id="mobile-swiper" class="swiper mobile">
+                  <div class="swiper-wrapper">
+                    <div
+                      class="swiper-slide lazy"
+                      data-src="./assets/media/jpg/1.jpg"
+                      target="./assets/media/jpg/1.jpg"
+                      title-txt="Happy Birthday~"
+                      content-txt="덕분에 행복한 생일 보냈어<br>나와 항상 함께 해줘서 고마워♥"
+                    ></div>
+                    <div
+                      class="swiper-slide lazy"
+                      data-src="./assets/media/jpg/2.jpg"
+                      target="./assets/media/jpg/2.jpg"
+                      title-txt="1일 5식 도전?"
+                      content-txt="휴가 내고 제주도 가는데,<br>혹시 추천 맛집 있어?<br>지도에 별표 해둔 곳 다 가고 말 거야!"
+                    ></div>
+                    <div
+                      class="swiper-slide lazy"
+                      data-src="./assets/media/jpg/3.jpg"
+                      target="./assets/media/jpg/3.jpg"
+                      title-txt="Nice shot"
+                      content-txt="3월만 기다렸다!<br>내일 라운딩인 거 잊지 않았지?<br>다행히 날씨도 완전 맑음이야.<br>하늘도 우리 편!<br>이긴 사람이 밥 사기~"
+                    ></div>
+                    <div
+                      class="swiper-slide lazy"
+                      data-src="./assets/media/jpg/4.jpg"
+                      target="./assets/media/jpg/4.jpg"
+                      title-txt="#내일주말"
+                      content-txt="요새 인싸들은 다 여기서 사진 찍던데,<br>우리도 한 번 가야 되지 않겠어?<br>3월 5일 2시! 내가 표 힘들게<br>구했으니까 잊지 말기~"
+                    ></div>
+                    <div
+                      class="swiper-slide lazy"
+                      data-src="./assets/media/jpg/5.jpg"
+                      target="./assets/media/jpg/5.jpg"
+                      title-txt="해피 보러 가야 해"
+                      content-txt="지금 잠깐 보자고?<br>사실 오늘 내가  해피 산책 당번이야.<br>아마 현관에서 나 오기만<br>기다리고 있을 텐데…<br>너도 같이 산책하러 갈래?"
+                    ></div>
+                    <div
+                      class="swiper-slide lazy"
+                      data-src="./assets/media/jpg/yc.png"
+                      target="./assets/media/jpg/yc.png"
+                      title-txt="행복 루틴 찾기"
+                      content-txt="퇴근 후 반신욕 30분.<br>하루 동안 쌓인 불안과 피로를 씻어내는<br>나만의 루틴이야.<br>너의 행복 루틴은 무엇이니?"
+                    ></div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+                <textarea
+                  class="card-title"
+                  id="card-title"
+                  placeholder="제목을 입력해주세요"
+                  maxlength="15"
+                ></textarea>
+                <textarea
+                  class="card-content"
+                  id="card-content"
+                  placeholder="본문을 입력해주세요"
+                  maxlength="200"
+                ></textarea>
+                <textarea
+                  class="card-from"
+                  id="card-from"
+                  placeholder="입력"
+                  maxlength="10"
+                ></textarea>
+                <div
+                  class="copyright"
+                  id="card-copyright"
+                  style="display: none"
+                >
+                  thehyundaifont.com ©Happiness Sans 2022
+                </div>
+              </div>
+
+              <div class="right">
+                <div class="pick-title pc">카드 고르기</div>
+
+                <div class="imgs-wrapper pc">
+                  <div
+                    class="pick-img lazy"
+                    data-src="./assets/media/jpg/1-thumb.jpg"
+                    target="./assets/media/jpg/1.jpg"
+                    title-txt="Happy Birthday~"
+                    content-txt="덕분에 행복한 생일 보냈어<br>나와 항상 함께 해줘서 고마워♥"
+                  ></div>
+                  <div
+                    class="pick-img lazy"
+                    data-src="./assets/media/jpg/2-thumb.jpg"
+                    target="./assets/media/jpg/2.jpg"
+                    title-txt="1일 5식 도전?"
+                    content-txt="휴가 내고 제주도 가는데,<br>혹시 추천 맛집 있어?<br>지도에 별표 해둔 곳 다 가고 말 거야!"
+                  ></div>
+                  <div
+                    class="pick-img lazy"
+                    data-src="./assets/media/jpg/3-thumb.jpg"
+                    target="./assets/media/jpg/3.jpg"
+                    title-txt="Nice shot"
+                    content-txt="3월만 기다렸다!<br>내일 라운딩인 거 잊지 않았지?<br>다행히 날씨도 완전 맑음이야.<br>하늘도 우리 편!<br>이긴 사람이 밥 사기~"
+                  ></div>
+                  <div
+                    class="pick-img lazy"
+                    data-src="./assets/media/jpg/4-thumb.jpg"
+                    target="./assets/media/jpg/4.jpg"
+                    title-txt="#내일주말"
+                    content-txt="요새 인싸들은 다 여기서 사진 찍던데,<br>우리도 한 번 가야 되지 않겠어?<br>3월 5일 2시! 내가 표 힘들게<br>구했으니까 잊지 말기~"
+                  ></div>
+                  <div
+                    class="pick-img lazy"
+                    data-src="./assets/media/jpg/5-thumb.jpg"
+                    target="./assets/media/jpg/5.jpg"
+                    title-txt="해피 보러 가야 해"
+                    content-txt="지금 잠깐 보자고?<br>사실 오늘 내가  해피 산책 당번이야.<br>아마 현관에서 나 오기만<br>기다리고 있을 텐데…<br>너도 같이 산책하러 갈래?"
+                  ></div>
+                  <!-- <div class="pick-img lazy" data-src='./assets/media/jpg/6-thumb.jpg' target="./assets/media/jpg/6.jpg" title-txt="행복 루틴 찾기" content-txt="퇴근 후 반신욕 30분.<br>하루 동안 쌓인 불안과 피로를 씻어내는<br>나만의 루틴이야.<br>너의 행복 루틴은 무엇이니?"></div> -->
+                  <div
+                    class="pick-img lazy"
+                    data-src="./assets/media/jpg/yc-thumb.png"
+                    target="./assets/media/jpg/yc.png"
+                    title-txt="행복 루틴 찾기"
+                    content-txt="퇴근 후 반신욕 30분.<br>하루 동안 쌓인 불안과 피로를 씻어내는<br>나만의 루틴이야.<br>너의 행복 루틴은 무엇이니?"
+                  ></div>
+                </div>
+
+                <div class="btn-wrapper pc">
+                  <div class="btn" id="empty-card">
+                    다시 쓰기<svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 14 14.11"
+                    >
+                      <defs>
+                        <style>
+                          .cls-1l,
+                          .cls-2l {
+                            fill: none;
+                          }
+                          .cls-2l {
+                            stroke: #222;
+                            stroke-miterlimit: 10;
+                            stroke-width: 1.3px;
+                          }
+                        </style>
+                      </defs>
+                      <g id="레이어_2" data-name="레이어 2">
+                        <g id="레이어_1-2" data-name="레이어 1">
+                          <g id="그룹_25" data-name="그룹 25">
+                            <rect
+                              id="사각형_79"
+                              data-name="사각형 79"
+                              class="cls-1l"
+                              width="14"
+                              height="14"
+                            />
+                            <path
+                              id="패스_14"
+                              data-name="패스 14"
+                              class="cls-2l"
+                              d="M12,5.69A5.51,5.51,0,1,1,7,2.45"
+                            />
+                            <path
+                              id="패스_15"
+                              data-name="패스 15"
+                              class="cls-2l"
+                              d="M5.2.54,7.53,2.47,5.6,4.8"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="btn" id="save-card-img">
+                    저장하기<svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 14 14"
+                    >
+                      <defs>
+                        <style>
+                          .cls-1d,
+                          .cls-2d {
+                            fill: none;
+                          }
+                          .cls-2d {
+                            stroke: #222;
+                            stroke-miterlimit: 10;
+                            stroke-width: 1.2px;
+                          }
+                        </style>
+                      </defs>
+                      <g id="레이어_2" data-name="레이어 2">
+                        <g id="레이어_1-2" data-name="레이어 1">
+                          <rect
+                            id="사각형_78"
+                            data-name="사각형 78"
+                            class="cls-1d"
+                            width="14"
+                            height="14"
+                          />
+                          <path
+                            id="패스_11"
+                            data-name="패스 11"
+                            class="cls-2d"
+                            d="M11.32,6,7,10.28,2.68,6"
+                          />
+                          <line
+                            id="선_1"
+                            data-name="선 1"
+                            class="cls-2d"
+                            x1="7"
+                            y1="10.06"
+                            x2="7"
+                            y2="0.98"
+                          />
+                          <line
+                            id="선_2"
+                            data-name="선 2"
+                            class="cls-2d"
+                            x1="1.31"
+                            y1="12.49"
+                            x2="12.69"
+                            y2="12.49"
+                          />
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                  <button
+                    class="kakao-share-button"
+                    onclick="sendImageToFriends()"
+                  >
+                    카카오톡으로 공유하기
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block mobile-grey" style="display: none">
+          <div class="wrapper youtube-title">
+            카드에 담긴 이야기를 영상으로 만나보세요
+          </div>
+          <div class="wrapper youtube">
+            <iframe
+              id="youtube_iframe"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/XGdVkLGayPo"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- download -->
+      <div
+        class="download grey mobile-white clearfix"
+        id="download"
+        style="display: none"
+      >
+        <div class="block">
+          <div class="wrapper">
+            <div class="title pc txt-center">해피니스 산스 다운로드</div>
+            <div class="title mobile txt-center">다운로드</div>
+            <div class="download-btn mobile txt-center">
+              해피니스 산스 다운로드는 PC에서 가능합니다.
+            </div>
+            <div class="left">
+              <div class="mobile line"></div>
+              <div class="l-col">글꼴구성</div>
+              <div class="r-col">
+                타이틀, 볼드, 레귤러, 배리어블<br />
+                (Title, Bold, Regular, Variable)<br />
+                한글 2,780자, 라틴 310자,<br />
+                숫자 190자, 기호활자 646자,<br />
+                기본 한자 4,888자(Noto Sans Open Source)
+              </div>
+              <div class="mobile line"></div>
+              <div class="l-col">글꼴포맷</div>
+              <div class="r-col">
+                인쇄용(OTF, TTF)<br />
+                지류에 출력 또는 인쇄를 위한 글꼴입니다.<br />
+                한자가 포함되어 있습니다.<br /><br />
+
+                화면용(OTF, TTF, WOFF, WOFF2)<br />
+                웹, 앱, 등 스크린 환경을 위한 글꼴입니다.<br />
+                한자가 포함되어 있지 않습니다.
+              </div>
+            </div>
+            <div class="right">
+              <div class="mobile line"></div>
+              <div class="l-col">사용 권장 OS</div>
+              <div class="r-col">
+                Windows XP 이상<br />
+                Mac OS X 10.6 (Snow Leopard) 이상
+              </div>
+              <div class="mobile line"></div>
+              <div class="l-col">라이센스</div>
+              <div class="r-col">
+                현대백화점 해피니스 산스 글꼴은 무료로 배포되며 영리적, 비영리적
+                목적으로 개인 및 기업 사용자 모두 자유롭게 사용하실 수 있습니다.
+                단, 현대백화점 해피니스 산스 글꼴의 지식재산권은
+                (주)현대백화점에 있으며, 폰트 파일은 유료로 판매하실 수
+                없습니다. 자세한 라이센스 범위는 글꼴 파일에 첨부된 PDF를
+                확인해주세요.
+              </div>
+              <div class="mobile line"></div>
+              <div class="l-col">써보기 문구</div>
+              <a
+                href="https://tohome.thehyundai.com/front/pd/pdf/searchResultInit.do?searchTerm=%ED%98%84%EB%8C%80%EC%8B%9D%ED%92%88%EB%AC%B8%ED%95%99"
+                target="_blank"
+                ><div class="r-col">
+                  현대식품문학, 현대식품관 투홈<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 10.01 9.73"
+                  >
+                    <defs>
+                      <style>
+                        .cls-1o {
+                          fill: none;
+                          stroke: #000;
+                          stroke-miterlimit: 10;
+                        }
+                      </style>
+                    </defs>
+                    <g id="레이어_2" data-name="레이어 2">
+                      <g id="레이어_1-2" data-name="레이어 1">
+                        <g id="그룹_85" data-name="그룹 85">
+                          <path
+                            id="패스_21"
+                            data-name="패스 21"
+                            class="cls-1o"
+                            d="M8.69,4.68V9.23H.5V1.31H5"
+                          />
+                          <path
+                            id="패스_22"
+                            data-name="패스 22"
+                            class="cls-1o"
+                            d="M6.36.5H9.51V3.64"
+                          />
+                          <line
+                            id="선_6"
+                            data-name="선 6"
+                            class="cls-1o"
+                            x1="9.51"
+                            y1="0.5"
+                            x2="4.23"
+                            y2="5.75"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </svg></div
+              ></a>
+              <div class="mobile line"></div>
+            </div>
+            <div class="btn-wrapper pc clearfix">
+              <div class="download-btn print">
+                <a
+                  class="btn"
+                  href="./assets/fonts/HappinessSans-Print.zip"
+                  download="HappinessSans-Print.zip"
+                  id="download-btn-print"
+                  >인쇄용 글꼴 받기<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 14 14"
+                  >
+                    <defs>
+                      <style>
+                        .cls-1d,
+                        .cls-2d {
+                          fill: none;
+                        }
+                        .cls-2d {
+                          stroke: #222;
+                          stroke-miterlimit: 10;
+                          stroke-width: 1.2px;
+                        }
+                      </style>
+                    </defs>
+                    <g id="레이어_2" data-name="레이어 2">
+                      <g id="레이어_1-2" data-name="레이어 1">
+                        <rect
+                          id="사각형_78"
+                          data-name="사각형 78"
+                          class="cls-1d"
+                          width="14"
+                          height="14"
+                        />
+                        <path
+                          id="패스_11"
+                          data-name="패스 11"
+                          class="cls-2d"
+                          d="M11.32,6,7,10.28,2.68,6"
+                        />
+                        <line
+                          id="선_1"
+                          data-name="선 1"
+                          class="cls-2d"
+                          x1="7"
+                          y1="10.06"
+                          x2="7"
+                          y2="0.98"
+                        />
+                        <line
+                          id="선_2"
+                          data-name="선 2"
+                          class="cls-2d"
+                          x1="1.31"
+                          y1="12.49"
+                          x2="12.69"
+                          y2="12.49"
+                        />
+                      </g>
+                    </g></svg
+                ></a>
+              </div>
+              <div class="download-btn screen">
+                <a
+                  class="btn"
+                  href="./assets/fonts/HappinessSans-Screen.zip"
+                  download="HappinessSans-Screen.zip"
+                  id="download-btn-screen"
+                  >화면용 글꼴 받기<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 14 14"
+                  >
+                    <defs>
+                      <style>
+                        .cls-1d,
+                        .cls-2d {
+                          fill: none;
+                        }
+                        .cls-2d {
+                          stroke: #222;
+                          stroke-miterlimit: 10;
+                          stroke-width: 1.2px;
+                        }
+                      </style>
+                    </defs>
+                    <g id="레이어_2" data-name="레이어 2">
+                      <g id="레이어_1-2" data-name="레이어 1">
+                        <rect
+                          id="사각형_78"
+                          data-name="사각형 78"
+                          class="cls-1d"
+                          width="14"
+                          height="14"
+                        />
+                        <path
+                          id="패스_11"
+                          data-name="패스 11"
+                          class="cls-2d"
+                          d="M11.32,6,7,10.28,2.68,6"
+                        />
+                        <line
+                          id="선_1"
+                          data-name="선 1"
+                          class="cls-2d"
+                          x1="7"
+                          y1="10.06"
+                          x2="7"
+                          y2="0.98"
+                        />
+                        <line
+                          id="선_2"
+                          data-name="선 2"
+                          class="cls-2d"
+                          x1="1.31"
+                          y1="12.49"
+                          x2="12.69"
+                          y2="12.49"
+                        />
+                      </g>
+                    </g></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="ios-image-layer"></div>
+
+    font preloading issue with canvas : this part preloads fonts
+    <div style="font-family: 'happy-title'; position: fixed; left: -100%">
+      .
+    </div>
+    <div style="font-family: 'happy-regular'; position: fixed; left: -100%">
+      .
+    </div>
+
+    <!--scripts-->
+    <script src="./assets/js/manager.js"></script>
+  </body>
+</html>
